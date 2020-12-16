@@ -1,8 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+if has('nvim')
+	  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+	  Plug 'Shougo/denite.nvim'
+	  Plug 'roxma/nvim-yarp'
+	  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 Plug 'scrooloose/nerdtree'
-Plug 'tsony-tsonev/nerdtree-git-plugin'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'ryanoasis/vim-devicons'
@@ -42,7 +48,6 @@ set completeopt=noinsert,menuone,noselect
 "autocmd BufEnter * call ncm2#enable_for_buffer()
 
 let mapleader="\<space>"
-
 
 
 
