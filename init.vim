@@ -24,30 +24,21 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "Plug 'junegunn/fzf.vim'
-"Plug 'ncm2/ncm2'
-"Plug 'roxma/nvim-yarp'
-"Plug 'ncm2/ncm2-bufword'
-"Plug 'ncm2/ncm2-path'
-"Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
-inoremap kj <ESC>
-nmap <C-n> :NERDTreeToggle<CR>
-vmap ++ <plug>NERDCommenterToggle
-nmap ++ <plug>NERDCommenterToggle
-
 colorscheme gruvbox
-set background=dark
 
+set background=dark
 set hidden
 set number
 set relativenumber
 set mouse=a
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
-"autocmd BufEnter * call ncm2#enable_for_buffer()
 
 let mapleader="\<space>"
 
-
-
+inoremap kj <ESC>
+nmap <C-e> :NERDTreeToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle

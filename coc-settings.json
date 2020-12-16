@@ -4,7 +4,7 @@
 
   "explorer.width": 30,
   "explorer.file.root.template": "[icon] [git] [hidden & 1][root]",
-  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableNerdfont": false,
   "explorer.previewAction.onHover": false,
   "explorer.icon.enableVimDevicons": false,
   "explorer.file.showHiddenFiles": false,
