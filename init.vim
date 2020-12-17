@@ -1,3 +1,5 @@
+source $HOME/.config/nvim/themes/airline.vim
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 call plug#begin('~/.vim/plugged')
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -8,27 +10,30 @@ else
 	  Plug 'roxma/nvim-yarp'
 	  Plug 'roxma/vim-hug-neovim-rpc'
 endif
+"Plug 'norcalli/nvim-colorizer.lua'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'vim-syntastic/syntastic'
+Plug 'frazrepo/vim-rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' 
+Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'morhetz/gruvbox'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'morhetz/gruvbox'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-colorscheme gruvbox
+colorscheme "nocturne
 
-set background=dark
 set hidden
 set number
 set relativenumber
@@ -39,6 +44,6 @@ set completeopt=noinsert,menuone,noselect
 let mapleader="\<space>"
 
 inoremap kj <ESC>
-nmap <C-e> :NERDTreeToggle<CR>
+nmap § :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
