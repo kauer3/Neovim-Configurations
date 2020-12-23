@@ -1,6 +1,8 @@
 source $HOME/.config/nvim/themes/airline.vim
 call plug#begin('~/.vim/plugged')
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('nvim')
@@ -34,25 +36,28 @@ Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 colorscheme kalisi
-set background=light
+set background=dark
 set number
 set relativenumber
 set mouse=a
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
+set signcolumn=auto
 
 nnoremap <SPACE> <Nop>
-nnoremap ç $
-nnoremap <M-b> ^
 let mapleader="\<space>"
+nnoremap ç $
+nnoremap <leader>b ^
 map <leader>q :q<CR>
 map <leader>w :w<CR>
 map <leader>wq :wq<CR>
 map <leader>qq :q!<CR>
-inoremap kj <ESC>
-nmap § :NERDTreeToggle<CR>
+inoremap jj <ESC>
+nmap <leader>e :NERDTreeToggle<CR>
 vmap <leader>3 <plug>NERDCommenterToggle
 nmap <leader>3 <plug>NERDCommenterToggle
+nnoremap <leader>9 %
+nnoremap <leader>r <C-r>
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
