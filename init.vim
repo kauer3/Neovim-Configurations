@@ -43,6 +43,7 @@ set mouse=a
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
+set scrolloff=5
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
@@ -56,13 +57,16 @@ inoremap jj <ESC>
 nmap <leader>e :NERDTreeToggle<CR>
 vmap <leader>3 <plug>NERDCommenterToggle
 nmap <leader>3 <plug>NERDCommenterToggle
-nnoremap <leader>9 %
+nmap <A-h> 3h
+nmap <A-j> 3j
+nmap <A-k> 3k
+nmap <A-l> 3l
+nnoremap 9 %
 nnoremap <leader>r <C-r>
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
-
-				let g:airline_symbols = {}
+    let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
 let g:airline#extensions#tabline#enabled = 1
