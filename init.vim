@@ -1,9 +1,12 @@
 source $HOME/.config/nvim/themes/airline.vim
-call plug#begin('~/.vim/plugged')
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-autocmd ColorScheme * highlight NonText ctermbg=NONE guibg=NONE
-autocmd ColorScheme * highlight LineNr ctermbg=NONE guibg=NONE
+autocmd ColorScheme * highlight Normal ctermbg=NONE 
+autocmd ColorScheme * highlight NonText ctermbg=NONE
+autocmd ColorScheme * highlight LineNr ctermbg=NONE 
+autocmd ColorScheme * highlight SignColumn ctermbg=NONE
+autocmd ColorScheme * highlight Comment ctermfg=9
+"autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
 
+call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 if has('nvim')
 	  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -15,8 +18,6 @@ endif
 "Plug 'norcalli/nvim-colorizer.lua'
 Plug 'freeo/vim-kalisi'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/dtree-git-plugin'
-"Plug 'tiagofuvim-nerdtree-syntax-highlight'
 Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
 Plug 'ryanoasis/vim-devicons'
@@ -31,6 +32,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'puremourning/vimspector' "Debugger
+Plug 'szw/vim-maximizer' "Zoom (like tmux zoom)
+Plug 'tpope/vim-fugitive' "Git wrapper
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -43,26 +47,55 @@ set mouse=a
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
-set scrolloff=5
+set scrolloff=10
+set linebreak
+hi CursorLine ctermbg=NONE cterm=underline
+hi CursorColumn ctermbg=NONE cterm=underline
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
-nnoremap ç $
 nnoremap <leader>b ^
-map <leader>q :q<CR>
-map <leader>w :w<CR>
-map <leader>wq :wq<CR>
-map <leader>qq :q!<CR>
+nnoremap <leader>. A.<ESC>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>wq :wq<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>qq :q!<CR>
+"Create new file (place filename after /)
+nnoremap <leader>n :e %:h/
+nnoremap <leader><leader> i<space><right><ESC>
+"Replace by yanked
+nnoremap <leader>piw ciw<C-r>0<ESC>
+nnoremap <leader>pw cw<C-r>0<ESC>
+nnoremap <leader>pi" ci"<C-r>0<ESC>
+nnoremap <leader>pi' ci'<C-r>0<ESC>
+nnoremap <leader>pi( ci(<C-r>0<ESC>
+nnoremap <leader>pi[ ci[<C-r>0<ESC>
+nnoremap <leader>pi{ ci{<C-r>0<ESC>
+nnoremap <leader>pi< ci<<C-r>0<ESC>
+nnoremap <leader>pit cit<C-r>0<ESC>
+"Visual block
+nnoremap <leader>v <C-v>
+nnoremap <leader>r <C-r>
+"Toggle file maximization while on split screen
+nnoremap <leader>z :MaximizerToggle<CR>
+nnoremap 9 %
+nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
+vnoremap <leader> <ESC>
 nmap <leader>e :NERDTreeToggle<CR>
+vmap <leader>y "+y
 vmap <leader>3 <plug>NERDCommenterToggle
 nmap <leader>3 <plug>NERDCommenterToggle
-nmap <A-h> 3h
-nmap <A-j> 3j
-nmap <A-k> 3k
-nmap <A-l> 3l
-nnoremap 9 %
-nnoremap <leader>r <C-r>
+"Git status
+nmap <leader>gs :G<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gu :diffget //2<CR>
+map Y y$
+map çç $
+map <A-h> 3h
+map <A-j> 3j
+map <A-k> 3k
+map <A-l> 3l
 
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
