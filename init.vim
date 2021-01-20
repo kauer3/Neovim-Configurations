@@ -27,18 +27,19 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'puremourning/vimspector' "Debugger
-Plug 'szw/vim-maximizer' "Zoom (like tmux zoom)
-Plug 'tpope/vim-fugitive' "Git wrapper
+"Debugger
+Plug 'puremourning/vimspector'
+"Zoom (like tmux zoom)
+Plug 'szw/vim-maximizer'
+"Git wrapper
+Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-colorscheme gruvbox
-
 autocmd ColorScheme * highlight Normal ctermbg=NONE 
 autocmd ColorScheme * highlight NonText ctermbg=NONE
-autocmd ColorScheme * highlight LineNr ctermbg=NONE 
+autocmd ColorScheme * highlight LineNr ctermbg=NONE
 autocmd ColorScheme * highlight LineNr ctermfg=88
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 autocmd ColorScheme * highlight Statement ctermbg=NONE
@@ -46,12 +47,28 @@ autocmd ColorScheme * highlight Title ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
 autocmd ColorScheme * highlight Underlined ctermbg=NONE
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE
+autocmd ColorScheme * highlight ErrorMsg ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=88
 autocmd ColorScheme * highlight CursorLineNr ctermbg=88
-autocmd ColorScheme * highlight CursorLineNr ctermfg=220
-autocmd ColorScheme * highlight Search ctermfg=211
-"autocmd ColorScheme * highlight Comment ctermfg=9
+autocmd ColorScheme * highlight CursorLineNr ctermfg=226
+autocmd ColorScheme * highlight Search ctermfg=88
+autocmd ColorScheme * highlight Search ctermbg=226
+autocmd ColorScheme * highlight Comment ctermfg=23
 "autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+
+"airline_tablabel	airline_tablabel
+"airline_tab	airline_tab
+"airline_tabsel	airline_tabsel
+"airline_tabtype	airline_tabtype
+"airline_tabmod	airline_tabmod
+"airline_tabmod_unsel	airline_tabmod_unsel
+"airline_tabhid	airline_tabhid
+"airline_tablabel_right	airline_tablabel_right
+"airline_tab_right	airline_tab_right
+"airline_tabsel_right	airline_tabsel_right
+"airline_tabmod_right	airline_tabmod_right
+
+colorscheme gruvbox
 
 set background=dark
 set number
@@ -64,36 +81,82 @@ set scrolloff=7
 set linebreak
 "set listchars=['|', '¦', '┆', '┊']
 "set list
-set statusline=%{FugitiveStatusline()}
-hi airline_c ctermbg=NONE
-hi airline_tabfill ctermbg=NONE
+"set statusline=%{FugitiveStatusline()}
 hi CursorLine ctermbg=NONE cterm=underline
 hi CursorColumn ctermbg=NONE cterm=underline
+hi airline_c ctermbg=NONE
+hi airline_c ctermbg=88
+hi airline_tabfill ctermbg=NONE
+"autocmd ColorScheme * highlight airline_tab-right ctermbg=88
+"autocmd ColorScheme * highlight airline_b_inactive ctermbg=NONE
+"autocmd ColorScheme * highlight airline_c_inactive ctermbg=NONE
+"autocmd ColorScheme * highlight airline_z_inactive ctermbg=NONE
+"autocmd ColorScheme * highlight airline_b ctermbg=NONE
+"autocmd ColorScheme * highlight airline_b ctermfg=124
+"autocmd ColorScheme * highlight airline_x_inactive ctermfg=88
+"autocmd ColorScheme * highlight airline_tablabel ctermbg=NONE
+"autocmd ColorScheme * highlight airline_tablabel ctermfg=214
+"autocmd ColorScheme * highlight StatusLineNC ctermfg=211
+"autocmd ColorScheme * highlight StatusLineNC ctermfg=211
+"autocmd ColorScheme * highlight airline_warning ctermbg=211
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
+map <TAB> >>
+map <S-TAB> <<
+imap <S-TAB> <C-d>
 nnoremap <leader>b ^
 nnoremap <leader>. A.<ESC>
-nnoremap <leader>q :q<CR>
-nnoremap <leader>wq :wq<CR>
+"nnoremap <leader>q :q<CR>
+"nnoremap <leader>wq :wq<CR> "Not needed, ZZ does the same, but saving only when necessary
 nnoremap <leader>w :w<CR>
 nnoremap <leader>qq :q!<CR>
 "Create new file (place filename after /)
 nnoremap <leader>n :e %:h/
 nnoremap <leader><leader> i<space><right><ESC>
+"inoremap <A-h> :<C-U>exe v:count1 .<C-o>h<CR>
+"nnoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
+nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 "Replace by yanked
-nnoremap <leader>piw ciw<C-r>0<ESC>
-nnoremap <leader>pw cw<C-r>0<ESC>
-nnoremap <leader>pi" ci"<C-r>0<ESC>
-nnoremap <leader>pi' ci'<C-r>0<ESC>
-nnoremap <leader>pi( ci(<C-r>0<ESC>
-nnoremap <leader>pi[ ci[<C-r>0<ESC>
-nnoremap <leader>pi{ ci{<C-r>0<ESC>
-nnoremap <leader>pi< ci<<C-r>0<ESC>
-nnoremap <leader>pit cit<C-r>0<ESC>
+nmap <leader>pw cw<C-r>0<ESC>
+nmap <leader>piw ciw<C-r>0<ESC>
+nmap <leader>pW cW<C-r>0<ESC>
+nmap <leader>piW ciW<C-r>0<ESC>
+nmap <leader>pi" ci"<C-r>0<ESC>
+nmap <leader>pi' ci'<C-r>0<ESC>
+nmap <leader>pi( ci(<C-r>0<ESC>
+nmap <leader>pi[ ci[<C-r>0<ESC>
+nmap <leader>pi{ ci{<C-r>0<ESC>
+nmap <leader>pi< ci<<C-r>0<ESC>
+nmap <leader>pit cit<C-r>0<ESC>
+nmap <leader>paw caw<C-r>0<ESC>
+nmap <leader>paW caW<C-r>0<ESC>
+nmap <leader>pa" ca"<C-r>0<ESC>
+nmap <leader>pa' ca'<C-r>0<ESC>
+nmap <leader>pa( ca(<C-r>0<ESC>
+nmap <leader>pa[ ca[<C-r>0<ESC>
+nmap <leader>pa{ ca{<C-r>0<ESC>
+nmap <leader>pa< ca<<C-r>0<ESC>
+nmap <leader>pat cat<C-r>0<ESC>
+"Normal mode commands while holding Alt in insert mode
+"inoremap <A-h> <C-o>h
+inoremap <A-j> <C-o>j
+inoremap <A-k> <C-o>k
+inoremap <A-l> <C-o>a
+inoremap <A-w> <C-o>w
+inoremap <A-e> <C-o>e<C-o>l
+inoremap <A-b> <C-o>b
+"inoremap <A-h> <ESC>hi
+"inoremap <A-h> <ESC>hi
+"inoremap <A-h> <ESC>hi
 "Visual block
 nnoremap <leader>v <C-v>
 nnoremap <A-r> <C-r>
+nnoremap <A-o> <C-o>
+nnoremap <A-x> ldlh
+"nnoremap <A-p> "0p
+inoremap <A-p> <C-r>0a
 "Toggle file maximization while on split screen
 nnoremap <leader>z :MaximizerToggle<CR>
 nnoremap 99 %
@@ -113,10 +176,10 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 map Y y$
 map çç $
-map <A-h> 3h
-map <A-j> 3j
-map <A-k> 3k
-map <A-l> 3l
+nmap <A-h> 3h
+nmap <A-j> 3j
+nmap <A-k> 3k
+nmap <A-l> 3l
 
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [

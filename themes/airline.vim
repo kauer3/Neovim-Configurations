@@ -25,5 +25,5 @@ set showtabline=2
 set laststatus=2
 set noshowmode
 
-"hi airline_c ctermbg=red
-"hi airline_tabfill ctermbg=white
+"hi airline_c ctermbg=NONE
+"hi airline_tabfill ctermbg=NONE
