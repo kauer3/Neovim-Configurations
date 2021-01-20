@@ -54,6 +54,9 @@ autocmd ColorScheme * highlight CursorLineNr ctermfg=226
 autocmd ColorScheme * highlight Search ctermfg=88
 autocmd ColorScheme * highlight Search ctermbg=226
 autocmd ColorScheme * highlight Comment ctermfg=23
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=88
+autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88
+autocmd ColorScheme * highlight GruvboxRedBold ctermbg=226
 "autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
 
 "airline_tablabel	airline_tablabel
@@ -85,7 +88,7 @@ set linebreak
 hi CursorLine ctermbg=NONE cterm=underline
 hi CursorColumn ctermbg=NONE cterm=underline
 hi airline_c ctermbg=NONE
-hi airline_c ctermbg=88
+hi airline_c ctermfg=88
 hi airline_tabfill ctermbg=NONE
 "autocmd ColorScheme * highlight airline_tab-right ctermbg=88
 "autocmd ColorScheme * highlight airline_b_inactive ctermbg=NONE
