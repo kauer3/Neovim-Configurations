@@ -11,6 +11,7 @@ else
 endif
 "Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'freeo/vim-kalisi'
+Plug '~/WSL/GitHub/paste-replace/paste-replace.vim'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
