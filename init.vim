@@ -15,11 +15,14 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
+Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim' 
+"Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
+Plug 'wellle/targets.vim'
+"Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -57,6 +60,8 @@ autocmd ColorScheme * highlight Comment ctermfg=23
 autocmd ColorScheme * highlight GruvboxPurple ctermfg=88
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88
 autocmd ColorScheme * highlight GruvboxRedBold ctermbg=226
+"autocmd ColorScheme * highlight NvimDivision ctermbg=226
+"autocmd ColorScheme * highlight NvimDivision ctermfg=1
 "autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
 
 "airline_tablabel	airline_tablabel
@@ -73,15 +78,20 @@ autocmd ColorScheme * highlight GruvboxRedBold ctermbg=226
 
 colorscheme gruvbox
 
+set nocompatible
+set backspace=indent,eol,start
 set background=dark
 set number
 set relativenumber
 set mouse=a
+set showcmd
+set incsearch
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
 set scrolloff=7
 set linebreak
+syntax on
 "set listchars=['|', '¦', '┆', '┊']
 "set list
 "set statusline=%{FugitiveStatusline()}
@@ -107,20 +117,37 @@ nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 map <TAB> >>
 map <S-TAB> <<
+map § gt
+map ª gT
+map <leader>nt :tabnew<CR>
+map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
+
 nnoremap <leader>b ^
 nnoremap <leader>. A.<ESC>
+nnoremap <leader><CR> ZZ
 "nnoremap <leader>q :q<CR>
 "nnoremap <leader>wq :wq<CR> "Not needed, ZZ does the same, but saving only when necessary
 nnoremap <leader>w :w<CR>
 nnoremap <leader>qq :q!<CR>
+
 "Create new file (place filename after /)
 nnoremap <leader>n :e %:h/
+
 nnoremap <leader><leader> i<space><right><ESC>
-"inoremap <A-h> :<C-U>exe v:count1 .<C-o>h<CR>
-"nnoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
+"inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
+"inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+
+
+
+"Todo - d(elete), c(hange), p(aste) or y(ank) <(before) or >(after) ,(comma)
+"(or any other character really, if I managed to use variables in mapping
+"functions)
+
+
+
 "Replace by yanked
 nmap <leader>pw cw<C-r>0<ESC>
 nmap <leader>piw ciw<C-r>0<ESC>
@@ -142,24 +169,30 @@ nmap <leader>pa[ ca[<C-r>0<ESC>
 nmap <leader>pa{ ca{<C-r>0<ESC>
 nmap <leader>pa< ca<<C-r>0<ESC>
 nmap <leader>pat cat<C-r>0<ESC>
+
 "Normal mode commands while holding Alt in insert mode
-"inoremap <A-h> <C-o>h
+inoremap <A-h> <C-o>h
 inoremap <A-j> <C-o>j
 inoremap <A-k> <C-o>k
 inoremap <A-l> <C-o>a
 inoremap <A-w> <C-o>w
 inoremap <A-e> <C-o>e<C-o>l
 inoremap <A-b> <C-o>b
+inoremap <A-x> <C-o>x
+inoremap <A-X> <C-o>X
 "inoremap <A-h> <ESC>hi
 "inoremap <A-h> <ESC>hi
-"inoremap <A-h> <ESC>hi
+
 "Visual block
 nnoremap <leader>v <C-v>
+
 nnoremap <A-r> <C-r>
 nnoremap <A-o> <C-o>
 nnoremap <A-x> ldlh
-"nnoremap <A-p> "0p
-inoremap <A-p> <C-r>0a
+nnoremap 1p "0p
+nnoremap <A-p> "*p
+inoremap <A-p> <C-r>0
+
 "Toggle file maximization while on split screen
 nnoremap <leader>z :MaximizerToggle<CR>
 nnoremap 99 %
