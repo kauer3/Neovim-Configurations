@@ -11,7 +11,7 @@ else
 endif
 "Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'freeo/vim-kalisi'
-Plug '~/WSL/GitHub/paste-replace/paste-replace.vim'
+Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
@@ -19,10 +19,11 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim' 
+Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
+"Plug 'wellle/targets.vim'
+"Check commenter by tpope
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
@@ -43,27 +44,19 @@ call plug#end()
 
 autocmd ColorScheme * highlight Normal ctermbg=NONE 
 autocmd ColorScheme * highlight NonText ctermbg=NONE
-autocmd ColorScheme * highlight LineNr ctermbg=NONE
-autocmd ColorScheme * highlight LineNr ctermfg=88
+autocmd ColorScheme * highlight LineNr ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 autocmd ColorScheme * highlight Statement ctermbg=NONE
 autocmd ColorScheme * highlight Title ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
 autocmd ColorScheme * highlight Underlined ctermbg=NONE
-autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE
-autocmd ColorScheme * highlight ErrorMsg ctermfg=124
+autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=88
-autocmd ColorScheme * highlight CursorLineNr ctermbg=88
-autocmd ColorScheme * highlight CursorLineNr ctermfg=226
-autocmd ColorScheme * highlight Search ctermfg=88
-autocmd ColorScheme * highlight Search ctermbg=226
+autocmd ColorScheme * highlight CursorLineNr ctermbg=88 ctermfg=226
+autocmd ColorScheme * highlight Search ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight Comment ctermfg=23
 autocmd ColorScheme * highlight GruvboxPurple ctermfg=88
-autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88
-autocmd ColorScheme * highlight GruvboxRedBold ctermbg=226
-"autocmd ColorScheme * highlight NvimDivision ctermbg=226
-"autocmd ColorScheme * highlight NvimDivision ctermfg=1
-"autocmd TextChanged,TextChangedI * if &readonly == 0 && filereadable(bufname('%')) | silent write | endif
+autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 
 "airline_tablabel	airline_tablabel
 "airline_tab	airline_tab
@@ -123,10 +116,10 @@ map ª gT
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
-
 nnoremap <leader>b ^
-nnoremap <leader>. A.<ESC>
-nnoremap <leader><CR> ZZ
+nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
+inoremap <expr> <A-ç> "<C-o>mp<C-o>A" . (nr2char(getchar())) . "<C-o>`p"
+nnoremap <leader>ç ZZ
 "nnoremap <leader>q :q<CR>
 "nnoremap <leader>wq :wq<CR> "Not needed, ZZ does the same, but saving only when necessary
 nnoremap <leader>w :w<CR>
@@ -146,7 +139,6 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 "Todo - d(elete), c(hange), p(aste) or y(ank) <(before) or >(after) ,(comma)
 "(or any other character really, if I managed to use variables in mapping
 "functions)
-
 
 
 "Replace by yanked
@@ -200,7 +192,7 @@ nnoremap 99 %
 nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
-nmap <leader>e :NERDTreeToggle<CR>
+nmap <A-e> :NERDTreeToggle<CR>
 vmap <leader>y "+y
 vmap <leader>3 <plug>NERDCommenterToggle
 nmap <leader>3 <plug>NERDCommenterToggle
@@ -212,7 +204,7 @@ nmap <leader>g. :Git add .<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 map Y y$
-map çç $
+map ç $
 nmap <A-h> 3h
 nmap <A-j> 3j
 nmap <A-k> 3k
