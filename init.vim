@@ -2,13 +2,13 @@ source $HOME/.config/nvim/themes/airline.vim
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-if has('nvim')
+"if has('nvim')
 	  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-	  Plug 'Shougo/denite.nvim'
-	  Plug 'roxma/nvim-yarp'
-	  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+"else
+		"Plug 'Shougo/denite.nvim'
+		"Plug 'roxma/nvim-yarp'
+		"Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 "Plug 'norcalli/nvim-colorizer.lua'
 "Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
