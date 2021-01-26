@@ -166,17 +166,22 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 "nmap <leader>pat cat<C-r>0<ESC>
 
 "Normal mode commands while holding Alt in insert mode
-inoremap <A-h> <C-o>h
-inoremap <A-j> <C-o>j
-inoremap <A-k> <C-o>k
-inoremap <A-l> <C-o>a
-inoremap <A-w> <C-o>w
-inoremap <A-e> <C-o>e<C-o>l
-inoremap <A-b> <C-o>b
-inoremap <A-x> <C-o>x
-inoremap <A-X> <C-o>X
+
+"TODO uncomment below
+"inoremap <A-h> <C-o>h
+"inoremap <A-j> <C-o>j
+"inoremap <A-k> <C-o>k
+"inoremap <A-l> <C-o>a
+"inoremap <A-w> <C-o>w
+"inoremap <A-e> <C-o>e<C-o>l
+"inoremap <A-b> <C-o>b
+"inoremap <A-x> <C-o>x
+"inoremap <A-X> <C-o>X
+
 "inoremap <A-h> <ESC>hi
 "inoremap <A-h> <ESC>hi
+
+inoremap <expr> <ESC>hi
 
 "Visual block
 nnoremap <leader>v <C-v>
@@ -186,7 +191,8 @@ nnoremap <A-o> <C-o>
 nnoremap <A-x> ldlh
 nnoremap 1p "0p
 nnoremap <A-p> "*p
-inoremap <A-p> <C-r>0
+"TODO uncomment below
+"inoremap <A-p> <C-r>0
 
 "Toggle file maximization while on split screen
 nnoremap <leader>z :MaximizerToggle<CR>
