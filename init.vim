@@ -3,7 +3,7 @@ source $HOME/.config/nvim/themes/airline.vim
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "if has('nvim')
-	  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
 		"Plug 'Shougo/denite.nvim'
 		"Plug 'roxma/nvim-yarp'
