@@ -181,7 +181,7 @@ nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1
 "inoremap <A-h> <ESC>hi
 "inoremap <A-h> <ESC>hi
 
-inoremap <expr> <ESC>hi
+inoremap <expr> \ 
 
 "Visual block
 nnoremap <leader>v <C-v>
