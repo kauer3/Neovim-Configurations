@@ -36,23 +36,31 @@ Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-autocmd ColorScheme * highlight Normal ctermbg=NONE 
-autocmd ColorScheme * highlight NonText ctermbg=NONE
+autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight SignColumn ctermbg=NONE
+autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight SignColumn ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight TabLineSel ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight TabLineFill ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Statement ctermbg=NONE
-autocmd ColorScheme * highlight Title ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
 autocmd ColorScheme * highlight Underlined ctermbg=NONE
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
 autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
-autocmd ColorScheme * highlight Comment ctermfg=23
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=6
+autocmd ColorScheme * highlight Visual ctermbg=9
+autocmd ColorScheme * highlight Comment ctermfg=237
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
+autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
+autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
+autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
+autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
+"autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
 
-"airline_tablabel	airline_tablabel
+"airline_tablabel	airline_tablabelh
 "airline_tab	airline_tab
 "airline_tabsel	airline_tabsel
 "airline_tabtype	airline_tabtype
