@@ -50,14 +50,14 @@ autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
 autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
-autocmd ColorScheme * highlight Visual ctermbg=9
+autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=154
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
-autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
-autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
+autocmd ColorScheme * highlight GruvboxOrange ctermfg=94
+autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=35
 "autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
 
 "airline_tablabel	airline_tablabelh
