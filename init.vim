@@ -10,13 +10,13 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
-Plug 'jbgutierrez/vim-better-comments'
+"Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
-"Plug 'wellle/targets.vim'
+Plug 'wellle/targets.vim'
 "Check commenter by tpope
 Plug 'scrooloose/nerdcommenter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
@@ -45,11 +45,11 @@ autocmd ColorScheme * highlight Title ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
 autocmd ColorScheme * highlight Underlined ctermbg=NONE
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
-autocmd ColorScheme * highlight MatchParen ctermbg=88
-autocmd ColorScheme * highlight CursorLineNr ctermbg=88 ctermfg=226
-autocmd ColorScheme * highlight Search ctermfg=88 ctermbg=226
+autocmd ColorScheme * highlight MatchParen ctermbg=5
+autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
+autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
 autocmd ColorScheme * highlight Comment ctermfg=23
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=88
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=6
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 
 "airline_tablabel	airline_tablabel
@@ -186,7 +186,8 @@ nnoremap <A-o> <C-o>
 nnoremap <A-x> ldlh
 nnoremap 1p "0p
 nnoremap <A-p> "*p
-noremap <A-p> <C-r>0
+inoremap <A-p> <C-r>*
+inoremap <C-v> <C-r>0
 
 "Toggle file maximization while on split screen
 nnoremap <leader>z :MaximizerToggle<CR>
