@@ -59,18 +59,6 @@ autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=130
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=35
 
-"airline_tablabel	airline_tablabelh
-"airline_tab	airline_tab
-"airline_tabsel	airline_tabsel
-"airline_tabtype	airline_tabtype
-"airline_tabmod	airline_tabmod
-"airline_tabmod_unsel	airline_tabmod_unsel
-"airline_tabhid	airline_tabhid
-"airline_tablabel_right	airline_tablabel_right
-"airline_tab_right	airline_tab_right
-"airline_tabsel_right	airline_tabsel_right
-"airline_tabmod_right	airline_tabmod_right
-
 colorscheme gruvbox
 
 set nocompatible
