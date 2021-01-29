@@ -12,7 +12,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
 "Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
@@ -52,12 +52,42 @@ autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
 autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=130
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=130
-autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=35
+autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=106
+autocmd ColorScheme * highlight op_lv0 ctermfg=88
+autocmd ColorScheme * highlight op_lv1 ctermfg=190
+autocmd ColorScheme * highlight op_lv2 ctermfg=118
+autocmd ColorScheme * highlight op_lv3 ctermfg=165
+autocmd ColorScheme * highlight op_lv4 ctermfg=19
+autocmd ColorScheme * highlight op_lv5 ctermfg=9
+autocmd ColorScheme * highlight lv5c ctermfg=35
+autocmd ColorScheme * highlight lv4c ctermfg=9
+autocmd ColorScheme * highlight lv3c ctermfg=165
+autocmd ColorScheme * highlight lv2c ctermfg=19
+autocmd ColorScheme * highlight lv1c ctermfg=190
+"autocmd ColorScheme * highlight airline_x_inactive ctermfg=249 ctermbg=238
+"autocmd ColorScheme * highlight airline_x_inactive_bold cterm=bold ctermfg=249 ctermbg=238
+"autocmd ColorScheme * highlight airline_x_inactive_red ctermfg=160 ctermbg=238
+"autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
+hi airline_c_to_airline_x_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
+hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
+hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
+
+"airline_tablabel	airline_tablabelh
+"airline_tab	airline_tab
+"airline_tabsel	airline_tabsel
+"airline_tabtype	airline_tabtype
+"airline_tabmod	airline_tabmod
+"airline_tabmod_unsel	airline_tabmod_unsel
+"airline_tabhid	airline_tabhid
+"airline_tablabel_right	airline_tablabel_right
+"airline_tab_right	airline_tab_right
+"airline_tabsel_right	airline_tabsel_right
+"airline_tabmod_right	airline_tabmod_right
 
 colorscheme gruvbox
 
