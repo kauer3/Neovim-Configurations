@@ -54,21 +54,24 @@ autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
-autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
-autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
-autocmd ColorScheme * highlight GruvboxOrange ctermfg=130
-autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=106
+autocmd ColorScheme * highlight GruvboxRed ctermfg=23
+autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
+autocmd ColorScheme * highlight GruvboxGreen ctermfg=94
+autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=166
+autocmd ColorScheme * highlight GruvboxYellow ctermfg=58
+autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
+autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
 autocmd ColorScheme * highlight op_lv0 ctermfg=88
 autocmd ColorScheme * highlight op_lv1 ctermfg=190
-autocmd ColorScheme * highlight op_lv2 ctermfg=118
-autocmd ColorScheme * highlight op_lv3 ctermfg=165
+autocmd ColorScheme * highlight op_lv2 ctermfg=165
+autocmd ColorScheme * highlight op_lv3 ctermfg=35
 autocmd ColorScheme * highlight op_lv4 ctermfg=19
 autocmd ColorScheme * highlight op_lv5 ctermfg=9
 autocmd ColorScheme * highlight lv5c ctermfg=35
 autocmd ColorScheme * highlight lv4c ctermfg=9
-autocmd ColorScheme * highlight lv3c ctermfg=165
+autocmd ColorScheme * highlight lv3c ctermfg=190
 autocmd ColorScheme * highlight lv2c ctermfg=19
-autocmd ColorScheme * highlight lv1c ctermfg=190
+autocmd ColorScheme * highlight lv1c ctermfg=165
 "autocmd ColorScheme * highlight airline_x_inactive ctermfg=249 ctermbg=238
 "autocmd ColorScheme * highlight airline_x_inactive_bold cterm=bold ctermfg=249 ctermbg=238
 "autocmd ColorScheme * highlight airline_x_inactive_red ctermfg=160 ctermbg=238
