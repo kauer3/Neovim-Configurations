@@ -58,10 +58,6 @@ autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=130
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=35
-"autocmd ColorScheme * highlight airline_x_inactive ctermfg=249 ctermbg=238
-"autocmd ColorScheme * highlight airline_x_inactive_bold cterm=bold ctermfg=249 ctermbg=238
-"autocmd ColorScheme * highlight airline_x_inactive_red ctermfg=160 ctermbg=238
-"autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
 
 "airline_tablabel	airline_tablabelh
 "airline_tab	airline_tab
