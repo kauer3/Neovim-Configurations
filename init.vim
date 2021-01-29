@@ -40,7 +40,6 @@ autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight Operator ctermbg=154 ctermfg=88
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 "autocmd ColorScheme * highlight TabLineSel ctermbg=NONE ctermfg=88
 "autocmd ColorScheme * highlight TabLineFill ctermbg=NONE ctermfg=88
@@ -59,6 +58,9 @@ autocmd ColorScheme * highlight GruvboxBlue ctermfg=148
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=23
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=130
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=35
+airline_x_inactive xxx ctermfg=249 ctermbg=238 guifg=#b2b2b2 guibg=#444444
+airline_x_inactive_bold xxx cterm=bold ctermfg=249 ctermbg=238 gui=bold guifg=#b2b2b2 guibg=#444444
+airline_x_inactive_red xxx ctermfg=160 ctermbg=238 guifg=#ff0000 guibg=#444444
 "autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
 
 "airline_tablabel	airline_tablabelh
