@@ -45,7 +45,7 @@ autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 "autocmd ColorScheme * highlight TabLineFill ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Statement ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
-autocmd ColorScheme * highlight Underlined ctermbg=NONE
+autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
@@ -56,11 +56,12 @@ autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight GruvboxRed ctermfg=23
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
-autocmd ColorScheme * highlight GruvboxGreen ctermfg=94
+"autocmd ColorScheme * highlight GruvboxGreen ctermfg=94
 autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=166
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=58
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
+autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight op_lv0 ctermfg=88
 autocmd ColorScheme * highlight op_lv1 ctermfg=190
 autocmd ColorScheme * highlight op_lv2 ctermfg=165
