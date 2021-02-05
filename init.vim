@@ -40,7 +40,7 @@ Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-autocmd VimEnter * GitGutterSignsDisable
+"autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
 autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
