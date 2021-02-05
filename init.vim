@@ -12,7 +12,7 @@ Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
 "Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
@@ -28,6 +28,10 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 "Debugger
 Plug 'puremourning/vimspector'
+"Emmet/completion
+Plug 'mattn/emmet-vim'
+"Live preview
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "Zoom (like tmux zoom)
 Plug 'szw/vim-maximizer'
 "Git wrapper
@@ -36,9 +40,15 @@ Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
+autocmd VimEnter * GitGutterSignsDisable
+autocmd VimEnter * GitGutterLineNrHighlightsEnable
+autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight LineNr ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
 autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 "autocmd ColorScheme * highlight TabLineSel ctermbg=NONE ctermfg=88
@@ -52,7 +62,8 @@ autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
 autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=35
+autocmd ColorScheme * highlight PmenuSel ctermfg=88
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=6
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight GruvboxRed ctermfg=23
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
@@ -117,7 +128,6 @@ hi CursorColumn ctermbg=NONE cterm=underline
 hi airline_c ctermbg=NONE
 hi airline_c ctermfg=88
 hi airline_tabfill ctermbg=NONE
-"autocmd ColorScheme * highlight airline_tab-right ctermbg=88
 "autocmd ColorScheme * highlight airline_b_inactive ctermbg=NONE
 "autocmd ColorScheme * highlight airline_c_inactive ctermbg=NONE
 "autocmd ColorScheme * highlight airline_z_inactive ctermbg=NONE
@@ -241,6 +251,12 @@ nmap <A-h> 3h
 nmap <A-j> 3j
 nmap <A-k> 3k
 nmap <A-l> 3l
+
+"function! GitStatus()
+    "let [a,m,r] = GitGutterGetHunkSummary()
+    "return printf('+%d ~%d -%d', a, m, r)
+"endfunction
+"set statusline+=%{GitStatus()}
 
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
