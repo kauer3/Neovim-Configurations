@@ -4,11 +4,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 "Plug 'norcalli/nvim-colorizer.lua'
-"Plug 'freeo/vim-kalisi'
+" Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-syntastic/syntastic'
+"Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
 "Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
@@ -17,17 +17,17 @@ Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
-"Check commenter by tpope
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-commentary'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Color Picker
+" Plug 'abijr/colorpicker'
 "Debugger
-Plug 'puremourning/vimspector'
+" Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
@@ -40,12 +40,12 @@ Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-autocmd VimEnter * GitGutterSignsDisable
-autocmd VimEnter * GitGutterLineNrHighlightsEnable
-autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
+" autocmd VimEnter * GitGutterSignsDisable
+" autocmd VimEnter * GitGutterLineNrHighlightsEnable
+" autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
+" autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
+" autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
+" autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
@@ -84,25 +84,8 @@ autocmd ColorScheme * highlight lv4c ctermfg=9
 autocmd ColorScheme * highlight lv3c ctermfg=190
 autocmd ColorScheme * highlight lv2c ctermfg=19
 autocmd ColorScheme * highlight lv1c ctermfg=165
-"autocmd ColorScheme * highlight airline_x_inactive ctermfg=249 ctermbg=238
-"autocmd ColorScheme * highlight airline_x_inactive_bold cterm=bold ctermfg=249 ctermbg=238
-"autocmd ColorScheme * highlight airline_x_inactive_red ctermfg=160 ctermbg=238
-"autocmd ColorScheme * highlight airline_tablabel_right ctermfg=88
-hi airline_c_to_airline_x_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
-
-"airline_tablabel	airline_tablabelh
-"airline_tab	airline_tab
-"airline_tabsel	airline_tabsel
-"airline_tabtype	airline_tabtype
-"airline_tabmod	airline_tabmod
-"airline_tabmod_unsel	airline_tabmod_unsel
-"airline_tabhid	airline_tabhid
-"airline_tablabel_right	airline_tablabel_right
-"airline_tab_right	airline_tab_right
-"airline_tabsel_right	airline_tabsel_right
-"airline_tabmod_right	airline_tabmod_right
 
 colorscheme gruvbox
 
@@ -117,28 +100,18 @@ set incsearch
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
-set scrolloff=7
+" set scrolloff=7
 set linebreak
+set nowrap
+set tw=0
+set wm=0
 syntax on
-"set listchars=['|', '¦', '┆', '┊']
-"set list
-"set statusline=%{FugitiveStatusline()}
+set statusline=%{FugitiveStatusline()}
 hi CursorLine ctermbg=NONE cterm=underline
 hi CursorColumn ctermbg=NONE cterm=underline
 hi airline_c ctermbg=NONE
 hi airline_c ctermfg=88
 hi airline_tabfill ctermbg=NONE
-"autocmd ColorScheme * highlight airline_b_inactive ctermbg=NONE
-"autocmd ColorScheme * highlight airline_c_inactive ctermbg=NONE
-"autocmd ColorScheme * highlight airline_z_inactive ctermbg=NONE
-"autocmd ColorScheme * highlight airline_b ctermbg=NONE
-"autocmd ColorScheme * highlight airline_b ctermfg=124
-"autocmd ColorScheme * highlight airline_x_inactive ctermfg=88
-"autocmd ColorScheme * highlight airline_tablabel ctermbg=NONE
-"autocmd ColorScheme * highlight airline_tablabel ctermfg=214
-"autocmd ColorScheme * highlight StatusLineNC ctermfg=211
-"autocmd ColorScheme * highlight StatusLineNC ctermfg=211
-"autocmd ColorScheme * highlight airline_warning ctermbg=211
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
@@ -166,15 +139,12 @@ nnoremap <leader>n :e %:h/
 nnoremap <leader><leader> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
-nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
-
-
+" nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+" nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 "Todo - d(elete), c(hange), p(aste) or y(ank) <(before) or >(after) ,(comma)
 "(or any other character really, if I managed to use variables in mapping
 "functions)
-
 
 "Replace by yanked
 "nmap <leader>pw cw<C-r>0<ESC>
@@ -251,12 +221,6 @@ nmap <A-h> 3h
 nmap <A-j> 3j
 nmap <A-k> 3k
 nmap <A-l> 3l
-
-"function! GitStatus()
-    "let [a,m,r] = GitGutterGetHunkSummary()
-    "return printf('+%d ~%d -%d', a, m, r)
-"endfunction
-"set statusline+=%{GitStatus()}
 
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
