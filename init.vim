@@ -7,6 +7,7 @@ Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
+" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
@@ -31,7 +32,8 @@ Plug 'vim-airline/vim-airline-themes'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
-Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plug 'turbio/bracey.vim'
+", {'do': 'npm install --prefix server'}
 "Zoom (like tmux zoom)
 Plug 'szw/vim-maximizer'
 "Git wrapper
@@ -40,12 +42,12 @@ Plug 'tpope/vim-fugitive'
 "Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" autocmd VimEnter * GitGutterSignsDisable
-" autocmd VimEnter * GitGutterLineNrHighlightsEnable
-" autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
-" autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
-" autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
-" autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
+autocmd VimEnter * GitGutterSignsDisable
+autocmd VimEnter * GitGutterLineNrHighlightsEnable
+autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
+autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
@@ -63,23 +65,23 @@ autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSel ctermfg=88
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=6
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=130
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
-autocmd ColorScheme * highlight GruvboxRed ctermfg=23
+autocmd ColorScheme * highlight GruvboxRed ctermfg=66
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
 "autocmd ColorScheme * highlight GruvboxGreen ctermfg=94
 autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=166
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=58
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
-autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight op_lv0 ctermfg=88
 autocmd ColorScheme * highlight op_lv1 ctermfg=190
 autocmd ColorScheme * highlight op_lv2 ctermfg=165
 autocmd ColorScheme * highlight op_lv3 ctermfg=35
 autocmd ColorScheme * highlight op_lv4 ctermfg=19
 autocmd ColorScheme * highlight op_lv5 ctermfg=9
-autocmd ColorScheme * highlight lv5c ctermfg=35
+autocmd ColorScheme * highlight lv5c ctermfg=108
 autocmd ColorScheme * highlight lv4c ctermfg=9
 autocmd ColorScheme * highlight lv3c ctermfg=190
 autocmd ColorScheme * highlight lv2c ctermfg=19
@@ -100,7 +102,7 @@ set incsearch
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
-" set scrolloff=7
+set scrolloff=5
 set linebreak
 set nowrap
 set tw=0
@@ -123,7 +125,14 @@ map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
-nnoremap <A-b> S<ESC>
+nnoremap <A-y> <C-y>
+nnoremap <A-e> <C-e>
+nnoremap <A-u> <C-u>
+nnoremap <A-d> <C-d>
+nnoremap <A-b> <C-b>
+nnoremap <A-f> <C-f>
+" Find another keybinding for this
+" nnoremap <A-b> S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
 inoremap <expr> <A-ç> "<C-o>mp<C-o>A" . (nr2char(getchar())) . "<C-o>`p"
 nnoremap <leader>ç ZZ
@@ -139,8 +148,8 @@ nnoremap <leader>n :e %:h/
 nnoremap <leader><leader> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
-" nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-" nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
 "Todo - d(elete), c(hange), p(aste) or y(ank) <(before) or >(after) ,(comma)
 "(or any other character really, if I managed to use variables in mapping
@@ -181,6 +190,8 @@ inoremap <A-B> <C-o>B
 inoremap <A-W> <C-o>W
 inoremap <A-x> <C-o>x
 inoremap <A-X> <C-o>X
+inoremap <A-u> <C-o><C-y>
+inoremap <A-d> <C-o><C-e>
 
 "inoremap <A-h> <ESC>hi
 "inoremap <A-h> <ESC>hi
@@ -204,7 +215,7 @@ nnoremap 99 %
 nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
-nmap <A-e> :NERDTreeToggle<CR>
+nmap <leader>e :NERDTreeToggle<CR>
 vmap <leader>y "+y
 vmap <leader>3 <plug>NERDCommenterToggle
 nmap <leader>3 <plug>NERDCommenterToggle
