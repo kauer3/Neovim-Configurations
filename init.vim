@@ -124,16 +124,27 @@ map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
-nnoremap <A-y> 2<C-y>
-nnoremap <A-e> 2<C-e>
-nnoremap <A-u> <C-u>
-nnoremap <A-d> <C-d>
-nnoremap <A-b> <C-b>
-nnoremap <A-f> <C-f>
-nnoremap <A-h> 2zh
-nnoremap <A-l> 2zl
-nnoremap <A-L> 2zL
-nnoremap <A-R> 2zR
+nnoremap Â¬k 3<C-y>
+nnoremap Â¬j 3<C-e>
+nnoremap Â¬h 6zh
+nnoremap Â¬l 6zl
+nnoremap Â¬u <C-u>
+nnoremap Â¬d <C-d>
+nnoremap Â¬b <C-b>
+nnoremap Â¬f <C-f>
+nnoremap Â¬ç zL
+nnoremap Â¬g zR
+
+inoremap Â¬k <C-o>2<C-y>
+inoremap Â¬j <C-o>2<C-e>
+inoremap Â¬h <C-o>3zh
+inoremap Â¬l <C-o>3zl
+inoremap Â¬u <C-o><C-u>
+inoremap Â¬d <C-o><C-d>
+inoremap Â¬b <C-o><C-b>
+inoremap Â¬f <C-o><C-f>
+inoremap Â¬L <C-o>zL
+inoremap Â¬R <C-o>zR
 " Find another keybinding for this
 " nnoremap <A-b> S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
