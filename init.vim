@@ -32,8 +32,7 @@ Plug 'vim-airline/vim-airline-themes'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
-Plug 'turbio/bracey.vim'
-", {'do': 'npm install --prefix server'}
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "Zoom (like tmux zoom)
 Plug 'szw/vim-maximizer'
 "Git wrapper
