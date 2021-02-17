@@ -125,12 +125,14 @@ map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
-nnoremap <A-y> <C-y>
-nnoremap <A-e> <C-e>
+nnoremap <A-y> 2<C-y>
+nnoremap <A-e> 2<C-e>
 nnoremap <A-u> <C-u>
 nnoremap <A-d> <C-d>
 nnoremap <A-b> <C-b>
 nnoremap <A-f> <C-f>
+nnoremap <A-h> 2zh
+nnoremap <A-l> 2zl
 " Find another keybinding for this
 " nnoremap <A-b> S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
@@ -228,10 +230,8 @@ nmap <leader>gh :diffget //3<CR>
 nmap <leader>gf :diffget //2<CR>
 map Y y$
 map ç $
-nmap <A-h> 3h
 nmap <A-j> 3j
 nmap <A-k> 3k
-nmap <A-l> 3l
 
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
