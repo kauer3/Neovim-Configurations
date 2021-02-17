@@ -132,6 +132,8 @@ nnoremap <A-b> <C-b>
 nnoremap <A-f> <C-f>
 nnoremap <A-h> 2zh
 nnoremap <A-l> 2zl
+nnoremap <A-L> 2zL
+nnoremap <A-R> 2zR
 " Find another keybinding for this
 " nnoremap <A-b> S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
