@@ -43,10 +43,10 @@ call plug#end()
 
 autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
-autocmd VimEnter * highlight  GitGutterAddLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterChangeLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterDeleteLineNr ctermfg=23
-autocmd VimEnter * highlight  GitGutterChangeDeleteLine ctermfg=23
+autocmd VimEnter * highlight GitGutterAddLineNr ctermfg=23
+autocmd VimEnter * highlight GitGutterChangeLineNr ctermfg=23
+autocmd VimEnter * highlight GitGutterDeleteLineNr ctermfg=23
+autocmd VimEnter * highlight GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
@@ -124,27 +124,31 @@ map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
-nnoremap <A-w> 3<C-y>
-nnoremap <A-s> 3<C-e>
-nnoremap <A-a> 6zh
-nnoremap <A-d> 6zl
-nnoremap Â¬u <C-u>
-nnoremap Â¬d <C-d>
-nnoremap Â¬b <C-b>
-nnoremap Â¬f <C-f>
-nnoremap Â¬ç zL
-nnoremap Â¬g zR
+nnoremap <M-i> 3<C-y>
+nnoremap <M-u> 3<C-e>
+nnoremap <M-y> 3zh
+nnoremap <M-o> 3zl
+" nnoremap <M-,> H3<C-y>
+" nnoremap <M-m> L3<C-e>
+" nnoremap <M-n> 3zh
+" nnoremap <M-.> 3zl
+nnoremap <Up> <C-u>
+nnoremap <Down> <C-d>
+" nnoremap <Up> <C-b>
+" nnoremap <Up> <C-f>
+" nnoremap Â¬ç zL
+" nnoremap Â¬g zR
 
-inoremap Â¬k <C-o>2<C-y>
-inoremap Â¬j <C-o>2<C-e>
-inoremap Â¬h <C-o>3zh
-inoremap Â¬l <C-o>3zl
-inoremap Â¬u <C-o><C-u>
-inoremap Â¬d <C-o><C-d>
-inoremap Â¬b <C-o><C-b>
-inoremap Â¬f <C-o><C-f>
-inoremap Â¬L <C-o>zL
-inoremap Â¬R <C-o>zR
+inoremap <M-i> <C-o>3<C-y>
+inoremap <M-u> <C-o>3<C-e>
+inoremap <M-y> <C-o>3zh
+inoremap <M-o> <C-o>3zl
+inoremap <Up> <C-o><C-u>
+inoremap <Down> <C-o><C-d>
+" inoremap Â¬b <C-o><C-b>
+" inoremap Â¬f <C-o><C-f>
+" inoremap Â¬L <C-o>zL
+" inoremap Â¬R <C-o>zR
 " Find another keybinding for this
 " nnoremap <A-b> S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
@@ -216,7 +220,7 @@ inoremap <A-d> <C-o><C-e>
 nnoremap <leader>v <C-v>
 
 nnoremap <A-r> <C-r>
-nnoremap <A-o> <C-o>
+" nnoremap <A-o> <C-o>
 nnoremap <A-x> ldlh
 nnoremap 1p "0p
 nnoremap <A-p> "*p
@@ -244,6 +248,8 @@ map Y y$
 map ç $
 nmap <A-j> 3j
 nmap <A-k> 3k
+nmap <A-l> 3l
+nmap <A-h> 3h
 
 let g:rainbow_active = 1
 let g:rainbow_load_separately = [
