@@ -124,10 +124,10 @@ map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
-nnoremap ^K 3<C-y>
-nnoremap ^J 3<C-e>
-nnoremap ^H 6zh
-nnoremap ^L 6zl
+nnoremap <Up> 3<C-y>
+nnoremap <Down> 3<C-e>
+nnoremap <Left> 6zh
+nnoremap <Right> 6zl
 nnoremap Â¬u <C-u>
 nnoremap Â¬d <C-d>
 nnoremap Â¬b <C-b>
