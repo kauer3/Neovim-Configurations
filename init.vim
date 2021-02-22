@@ -25,6 +25,7 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'voldikss/vim-floaterm'
 "Color Picker
 " Plug 'abijr/colorpicker'
 "Debugger
