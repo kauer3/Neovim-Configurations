@@ -52,8 +52,6 @@ autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
 autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
-"autocmd ColorScheme * highlight TabLineSel ctermbg=NONE ctermfg=88
-"autocmd ColorScheme * highlight TabLineFill ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Statement ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
 autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
