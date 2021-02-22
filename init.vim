@@ -27,6 +27,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
+Plug 'norcalli/nvim-colorizer.lua'
 "Color Picker
 " Plug 'abijr/colorpicker'
 "Debugger
