@@ -167,10 +167,6 @@ nnoremap <leader><leader> i<space><right><ESC>
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
 
-"Todo - d(elete), c(hange), p(aste) or y(ank) <(before) or >(after) ,(comma)
-"(or any other character really, if I managed to use variables in mapping
-"functions)
-
 "Normal mode commands while holding Alt in insert mode
 
 inoremap <A-h> <C-o>h
