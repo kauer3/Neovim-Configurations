@@ -2,8 +2,8 @@ source $HOME/.config/nvim/themes/airline.vim
 
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-"Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
@@ -11,7 +11,6 @@ Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
 Plug 'frazrepo/vim-rainbow'
-"Plug 'jbgutierrez/vim-better-comments'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -27,7 +26,6 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'voldikss/vim-floaterm'
 Plug 'mhinz/vim-startify'
-Plug 'norcalli/nvim-colorizer.lua'
 "Color Picker
 " Plug 'abijr/colorpicker'
 "Debugger
@@ -40,8 +38,8 @@ Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plug 'szw/vim-maximizer'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-"Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 
 autocmd VimEnter * GitGutterSignsDisable
@@ -51,6 +49,7 @@ autocmd VimEnter * highlight GitGutterChangeLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterDeleteLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight Cursor ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
 autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
@@ -105,6 +104,7 @@ set signcolumn=auto
 set scrolloff=5
 set linebreak
 set nowrap
+set hidden
 set tw=0
 set wm=0
 syntax on
@@ -117,12 +117,17 @@ hi airline_tabfill ctermbg=NONE
 
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
+noremap <M-b> <C-o>
+noremap <M-a> <C-i>
 map <TAB> >>
 map <S-TAB> <<
 map § gt
 map ª gT
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
+map <leader>f :Files<CR>
+map <C-f> :BLines<CR>
+map <silent> <M-s> :Startify<CR>
 imap <S-TAB> <C-d>
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
@@ -140,7 +145,7 @@ nnoremap <Down> <C-d>
 " nnoremap Â¬ç zL
 " nnoremap Â¬g zR
 
-
+"TODO Fix next lines
 inoremap <M-i> <C-o>3<C-y>
 inoremap <M-u> <C-o>3<C-e>
 inoremap <M-y> <C-o>3zh
