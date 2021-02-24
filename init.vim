@@ -173,7 +173,7 @@ nnoremap <leader>qq :q!<CR>
 "Create new file (place filename after /)
 nnoremap <leader>n :e %:h/
 
-nnoremap <leader><leader> i<space><right><ESC>
+nnoremap <leader><leader><leader> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
