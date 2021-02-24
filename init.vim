@@ -137,6 +137,9 @@ map <C-f> :BLines<CR>
 " Startify
 map <silent> <M-s> :Startify<CR>
 
+
+map <leader>t :FloatermNew<CR>
+
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
 nnoremap <M-u> 3<C-e>
