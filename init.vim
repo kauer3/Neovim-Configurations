@@ -21,6 +21,7 @@ Plug 'tpope/vim-commentary'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+Plug 'easymotion/vim-easymotion'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -49,7 +50,6 @@ autocmd VimEnter * highlight GitGutterChangeLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterDeleteLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
-autocmd ColorScheme * highlight Cursor ctermfg=214
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
 autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
@@ -121,10 +121,13 @@ noremap <M-b> <C-o>
 noremap <M-a> <C-i>
 map <TAB> >>
 map <S-TAB> <<
-map § gt
-map ª gT
+
+map <M-2> :bn<CR>
+map <M-1> :bp<CR>
+map <leader>cb :bd<CR>
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
+
 map <leader>f :Files<CR>
 map <C-f> :BLines<CR>
 map <silent> <M-s> :Startify<CR>
@@ -146,7 +149,7 @@ nnoremap <Down> <C-d>
 " nnoremap Â¬g zR
 
 "TODO Fix next lines
-inoremap <M-i> <C-o>3<C-y>
+inoremap <M-i> <C-o>3<C-y>set scrolloff=5<CR>
 inoremap <M-u> <C-o>3<C-e>
 inoremap <M-y> <C-o>3zh
 inoremap <M-o> <C-o>3zl
