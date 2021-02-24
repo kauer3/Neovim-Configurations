@@ -121,17 +121,22 @@ noremap <M-b> <C-o>
 noremap <M-a> <C-i>
 map <TAB> >>
 map <S-TAB> <<
+imap <S-TAB> <C-d>
 
+" Tabs and buffers
 map <M-2> :bn<CR>
 map <M-1> :bp<CR>
 map <leader>cb :bd<CR>
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 
+" FZF
 map <leader>f :Files<CR>
 map <C-f> :BLines<CR>
+
+" Startify
 map <silent> <M-s> :Startify<CR>
-imap <S-TAB> <C-d>
+
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
 nnoremap <M-u> 3<C-e>
