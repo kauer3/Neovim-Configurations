@@ -44,6 +44,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
+autocmd VimEnter * Startify
 autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 autocmd VimEnter * highlight GitGutterAddLineNr ctermfg=23
