@@ -10,7 +10,7 @@ Plug 'morhetz/gruvbox'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
-Plug 'frazrepo/vim-rainbow'
+" Plug 'frazrepo/vim-rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -50,9 +50,31 @@ autocmd VimEnter * highlight GitGutterChangeLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterDeleteLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterChangeDeleteLine ctermfg=23
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight Operator ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight NvimOperator ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight htmlTagName ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight htmlTag ctermbg=NONE ctermfg=88
+" autocmd ColorScheme * highlight htmlHead ctermbg=NONE ctermfg=65
+autocmd ColorScheme * highlight htmlArg ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight htmlEndTag ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight htmlString ctermbg=NONE ctermfg=65
+" autocmd ColorScheme * highlight htmlTagN ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssDefinition ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight cssBraces ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssIdentifier ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssTagName ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssUnitDecorators ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight jsFunction ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight jsFuncBlock ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight jsFuncBraces ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight jsBrackets ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight jsNoise ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight jsDot ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight jsGlobalObjects ctermbg=NONE ctermfg=166
+autocmd ColorScheme * highlight jsObjectProp ctermbg=NONE ctermfg=166
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
-autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 autocmd ColorScheme * highlight Statement ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
@@ -64,16 +86,19 @@ autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSel ctermfg=88
-autocmd ColorScheme * highlight GruvboxPurple ctermfg=130
+autocmd ColorScheme * highlight GruvboxPurple ctermfg=166
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
-autocmd ColorScheme * highlight GruvboxRed ctermfg=66
+autocmd ColorScheme * highlight GruvboxRed ctermfg=23
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
-"autocmd ColorScheme * highlight GruvboxGreen ctermfg=94
-autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=166
+autocmd ColorScheme * highlight GruvboxGreen ctermfg=23
+autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=29
 autocmd ColorScheme * highlight GruvboxYellow ctermfg=58
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
-autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=94
-autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=166
+autocmd ColorScheme * highlight GruvboxAquaBold ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight GruvboxFg1 ctermbg=NONE ctermfg=65
+autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
 autocmd ColorScheme * highlight op_lv0 ctermfg=88
 autocmd ColorScheme * highlight op_lv1 ctermfg=190
 autocmd ColorScheme * highlight op_lv2 ctermfg=165
@@ -85,6 +110,15 @@ autocmd ColorScheme * highlight lv4c ctermfg=9
 autocmd ColorScheme * highlight lv3c ctermfg=190
 autocmd ColorScheme * highlight lv2c ctermfg=19
 autocmd ColorScheme * highlight lv1c ctermfg=165
+autocmd ColorScheme * highlight StartifyFile ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight NERDTreeFlags ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight NERDTreeCWD ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight NERDTreeDir ctermbg=NONE ctermfg=65
+autocmd ColorScheme * highlight NERDTreeDirSlash ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight CocInfoFloat ctermbg=233 ctermfg=88
+autocmd ColorScheme * highlight CocErrorFloat ctermbg=233 ctermfg=88
+autocmd ColorScheme * highlight CocWarningFloat ctermbg=233 ctermfg=88
+autocmd ColorScheme * highlight CocHintFloat ctermbg=233 ctermfg=88
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 
@@ -115,6 +149,13 @@ hi airline_c ctermbg=NONE
 hi airline_c ctermfg=88
 hi airline_tabfill ctermbg=NONE
 
+function! SynStack()
+    if !exists("*synstack")
+        return
+    endif
+    echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
+
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
@@ -137,8 +178,15 @@ map <C-f> :BLines<CR>
 " Startify
 map <silent> <M-s> :Startify<CR>
 
-
+" Floaterm
 map <leader>t :FloatermNew<CR>
+
+" Easymotion
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+" JK motions: Line motions
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
 
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
@@ -156,8 +204,8 @@ nnoremap <Down> <C-d>
 " nnoremap Â¬ç zL
 " nnoremap Â¬g zR
 
-"TODO Fix next lines
-inoremap <M-i> <C-o>3<C-y>set scrolloff=5<CR>
+" TODO Fix next lines
+inoremap <M-i> <C-o>3<C-y>
 inoremap <M-u> <C-o>3<C-e>
 inoremap <M-y> <C-o>3zh
 inoremap <M-o> <C-o>3zl
