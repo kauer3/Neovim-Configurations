@@ -207,10 +207,8 @@ nnoremap <M-o> 3zl
 " nnoremap <M-m> L3<C-e>
 " nnoremap <M-n> 3zh
 " nnoremap <M-.> 3zl
-nnoremap <Up> <C-u>
-nnoremap <Down> <C-d>
-" nnoremap <Up> <C-b>
-" nnoremap <Up> <C-f>
+nnoremap <Up> <C-b>
+nnoremap <Up> <C-f>
 " nnoremap Â¬ç zL
 " nnoremap Â¬g zR
 
@@ -219,8 +217,6 @@ inoremap <M-i> <C-o>3<C-y>
 inoremap <M-u> <C-o>3<C-e>
 inoremap <M-y> <C-o>3zh
 inoremap <M-o> <C-o>3zl
-inoremap <Up> <C-o><C-u>
-inoremap <Down> <C-o><C-d>
 " inoremap Â¬b <C-o><C-b>
 " inoremap Â¬f <C-o><C-f>
 " inoremap Â¬L <C-o>zL
