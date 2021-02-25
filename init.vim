@@ -171,6 +171,9 @@ map <leader>cb :bd<CR>
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
 
+" Commenter
+map <leader>3 gcc
+
 " FZF
 " map <leader>f :Files<CR>
 map <C-f> :BLines<CR>
@@ -277,8 +280,6 @@ inoremap jj <ESC>
 vnoremap <leader> <ESC>
 nmap <leader>e :NERDTreeToggle<CR>
 vmap <leader>y "+y
-vmap <leader>3 <plug>NERDCommenterToggle
-nmap <leader>3 <plug>NERDCommenterToggle
 "Git status
 nmap <leader>gs :Git<CR>
 nmap <leader>gc :Git commit<CR>
