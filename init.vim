@@ -167,6 +167,7 @@ noremap <M-a> <C-i>
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
+map <CR> i<CR><ESC>
 
 " Tabs and buffers
 map <M-2> :bn<CR>
