@@ -192,7 +192,7 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 nmap f <Plug>(easymotion-overwin-f)
-
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
 nnoremap <M-u> 3<C-e>
