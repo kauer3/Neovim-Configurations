@@ -191,7 +191,7 @@ let g:EasyMotion_smartcase = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
-nmap <Leader>f <Plug>(easymotion-overwin-f)
+nmap f <Plug>(easymotion-overwin-f)
 
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
