@@ -198,6 +198,16 @@ map <leader>k <Plug>(easymotion-k)
 nmap f <Plug>(easymotion-overwin-f)
 nmap <M-w> <Plug>(easymotion-overwin-w)
 
+" Emmet
+let g:user_emmet_leader_key=','
+let g:user_emmet_settings = {
+    \  'html': {
+    \    'snippets': {
+    \      '!': '!!!+html>(head>(meta[charset=${charset}]+meta[name="viewport" content="width=device-width,initial-scale=1.0"]+meta[http-equiv="X-UA-Compatible" content="ie=edge"]+title +body'
+        \}
+    \}
+\}
+
 nnoremap <leader>b ^
 nnoremap <M-i> 3<C-y>
 nnoremap <M-u> 3<C-e>
@@ -207,8 +217,8 @@ nnoremap <M-o> 3zl
 " nnoremap <M-m> L3<C-e>
 " nnoremap <M-n> 3zh
 " nnoremap <M-.> 3zl
-nnoremap <Up> <C-b>
-nnoremap <Up> <C-f>
+" nnoremap <Up> <C-b>
+" nnoremap <Up> <C-f>
 " nnoremap Â¬ç zL
 " nnoremap Â¬g zR
 
