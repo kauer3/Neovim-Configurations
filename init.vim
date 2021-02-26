@@ -3,10 +3,10 @@ source $HOME/.config/nvim/themes/airline.vim
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
+Plug 'ap/vim-css-color'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
@@ -100,24 +100,24 @@ autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
-autocmd ColorScheme * highlight Search ctermfg=black ctermbg=46
+autocmd ColorScheme * highlight Search ctermfg=46 ctermbg=black cterm=NONE
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSBar ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Pmenu ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight vimHiKeyError ctermbg=52 ctermfg=65
 autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
-autocmd ColorScheme * highlight op_lv0 ctermfg=88
-autocmd ColorScheme * highlight op_lv1 ctermfg=190
-autocmd ColorScheme * highlight op_lv2 ctermfg=165
-autocmd ColorScheme * highlight op_lv3 ctermfg=35
-autocmd ColorScheme * highlight op_lv4 ctermfg=19
-autocmd ColorScheme * highlight op_lv5 ctermfg=9
-autocmd ColorScheme * highlight lv5c ctermfg=108
-autocmd ColorScheme * highlight lv4c ctermfg=9
-autocmd ColorScheme * highlight lv3c ctermfg=190
-autocmd ColorScheme * highlight lv2c ctermfg=19
-autocmd ColorScheme * highlight lv1c ctermfg=165
+" autocmd ColorScheme * highlight op_lv0 ctermfg=88
+" autocmd ColorScheme * highlight op_lv1 ctermfg=190
+" autocmd ColorScheme * highlight op_lv2 ctermfg=165
+" autocmd ColorScheme * highlight op_lv3 ctermfg=35
+" autocmd ColorScheme * highlight op_lv4 ctermfg=19
+" autocmd ColorScheme * highlight op_lv5 ctermfg=9
+" autocmd ColorScheme * highlight lv5c ctermfg=108
+" autocmd ColorScheme * highlight lv4c ctermfg=9
+" autocmd ColorScheme * highlight lv3c ctermfg=190
+" autocmd ColorScheme * highlight lv2c ctermfg=19
+" autocmd ColorScheme * highlight lv1c ctermfg=165
 autocmd ColorScheme * highlight StartifyFile ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NERDTreeFlags ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight NERDTreeCWD ctermbg=NONE ctermfg=88
@@ -188,10 +188,31 @@ map <leader>3 gcc
 let g:rainbow_active = 1
 
 " FZF
+" g:fzf_colors
 map <silent> <leader>f :Files<CR>
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
 " TODO
-map \l <plug>(fzf-complete-buffer-line)
-map \b <plug>(fzf-complete-line)
+" map \l <plug>(fzf-complete-buffer-line)
+" map \b <plug>(fzf-complete-line)
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Label'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'LineNr'],
+  \ 'fg+':     ['fg', 'Normal'],
+  \ 'bg+':     ['bg', 'Search'],
+  \ 'hl+':     ['fg', 'Search'],
+  \ 'info':    ['fg', 'GruvboxPurpleBold'],
+  \ 'border':  ['fg', 'LineNr'],
+  \ 'prompt':  ['fg', 'PreProc'],
+  \ 'disabled': ['bg', 'Label'],
+  \ 'pointer': ['fg', 'Search'],
+  \ 'gutter':  ['fg', 'LineNr'],
+  \ 'marker':  ['fg', 'Todo'],
+  \ 'spinner': ['fg', 'Todo'],
+  \ 'header':  ['fg', 'Label'] }
+
+
 
 " call fzf#run({'source': [1, 2, 3], 'down': '~40%'}))
 
