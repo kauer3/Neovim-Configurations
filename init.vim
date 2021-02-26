@@ -3,21 +3,19 @@ source $HOME/.config/nvim/themes/airline.vim
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'norcalli/nvim-colorizer.lua'
+" Plug 'norcalli/nvim-colorizer.lua'
 " Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
 " Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
-" Plug 'frazrepo/vim-rainbow'
 Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
-Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
+Plug 'wellle/targets.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -31,7 +29,7 @@ Plug 'mhinz/vim-startify'
 "Color Picker
 " Plug 'abijr/colorpicker'
 "Debugger
-" Plug 'puremourning/vimspector'
+Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
@@ -57,7 +55,7 @@ autocmd ColorScheme * highlight GruvboxRed ctermfg=23
 autocmd ColorScheme * highlight GruvboxBlue ctermfg=23
 autocmd ColorScheme * highlight GruvboxGreen ctermfg=23
 autocmd ColorScheme * highlight GruvboxGreenBold ctermfg=29
-autocmd ColorScheme * highlight GruvboxYellow ctermfg=58
+autocmd ColorScheme * highlight GruvboxYellow ctermfg=71
 autocmd ColorScheme * highlight GruvboxOrange ctermfg=23
 autocmd ColorScheme * highlight GruvboxAqua ctermbg=NONE ctermfg=166
 autocmd ColorScheme * highlight GruvboxAquaBold ctermbg=NONE ctermfg=214
@@ -72,26 +70,29 @@ autocmd ColorScheme * highlight htmlTag ctermbg=NONE ctermfg=88
 " autocmd ColorScheme * highlight htmlHead ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight htmlArg ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight htmlEndTag ctermbg=NONE ctermfg=23
-autocmd ColorScheme * highlight htmlString ctermbg=NONE ctermfg=65
+" autocmd ColorScheme * highlight htmlString ctermbg=NONE ctermfg=65
 " autocmd ColorScheme * highlight htmlTagN ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight cssDefinition ctermbg=NONE ctermfg=214
-autocmd ColorScheme * highlight cssBraces ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssDefinition ctermbg=NONE ctermfg=71
+autocmd ColorScheme * highlight cssBraces ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight cssIdentifier ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight cssTagName ctermbg=NONE ctermfg=88
-autocmd ColorScheme * highlight cssUnitDecorators ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight cssTagName ctermbg=NONE ctermfg=214
+autocmd ColorScheme * highlight cssAttrComma ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight cssAttrRegion ctermbg=NONE ctermfg=66
+autocmd ColorScheme * highlight cssUnitDecorators ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight jsFunction ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight jsFuncBlock ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight jsFuncCall ctermbg=NONE ctermfg=29
-autocmd ColorScheme * highlight jsFuncBraces ctermbg=NONE ctermfg=23
-autocmd ColorScheme * highlight jsBrackets ctermbg=NONE ctermfg=23
+autocmd ColorScheme * highlight jsFuncBraces ctermbg=NONE ctermfg=30
+autocmd ColorScheme * highlight jsBrackets ctermbg=NONE ctermfg=71
 autocmd ColorScheme * highlight jsNoise ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight jsDot ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight jsGlobalObjects ctermbg=NONE ctermfg=166
 autocmd ColorScheme * highlight jsObjectProp ctermbg=NONE ctermfg=166
+autocmd ColorScheme * highlight jsUndefined ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight Title ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight NonText ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight LineNr ctermbg=NONE  ctermfg=88
-autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=65
+autocmd ColorScheme * highlight String ctermbg=NONE ctermfg=66
 autocmd ColorScheme * highlight SignColumn ctermbg=NONE
 autocmd ColorScheme * highlight Statement ctermbg=NONE
 autocmd ColorScheme * highlight Todo ctermbg=NONE
@@ -99,10 +100,11 @@ autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
-autocmd ColorScheme * highlight Search ctermfg=2 ctermbg=10
+autocmd ColorScheme * highlight Search ctermfg=black ctermbg=46
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSBar ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight Pmenu ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight vimHiKeyError ctermbg=52 ctermfg=65
 autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
 autocmd ColorScheme * highlight op_lv0 ctermfg=88
@@ -144,6 +146,7 @@ set scrolloff=5
 set linebreak
 set nowrap
 set hidden
+set nohlsearch
 set tw=0
 set wm=0
 syntax on
@@ -171,8 +174,9 @@ imap <S-TAB> <C-d>
 map <CR> i<CR><ESC>
 
 " Tabs and buffers
-map <M-2> :bn<CR>
-map <M-1> :bp<CR>
+map <silent> <M-3> :bn<CR>
+map <silent> <M-2> :bp<CR>
+map <silent> <M-1> 
 map <leader>cb :bd<CR>
 map <leader>nt :tabnew<CR>
 map <leader>ct :tabclose<CR>
@@ -180,15 +184,32 @@ map <leader>ct :tabclose<CR>
 " Commenter
 map <leader>3 gcc
 
+" Rainbow
+let g:rainbow_active = 1
+
 " FZF
-" map <leader>f :Files<CR>
-map <C-f> :BLines<CR>
+map <silent> <leader>f :Files<CR>
+" TODO
+map \l <plug>(fzf-complete-buffer-line)
+map \b <plug>(fzf-complete-line)
+
+" call fzf#run({'source': [1, 2, 3], 'down': '~40%'}))
+
+" fzf#wrap injects 'down': '~40%' by default, so
+" call fzf#run(fzf#wrap({'source': [1, 2, 3]}))
+
+" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" let g:fzf_preview_window = ['up:40%', 'ctrl-/']
 
 " Startify
+let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}]
+let g:startify_session_autoload = 1
+let g:startify_fortune_use_unicode = 1
+let g:startify_enable_special = 1
 map <silent> <M-s> :Startify<CR>
 
 " Floaterm
-map <leader>t :FloatermNew<CR>
+map <silent> <leader>t :FloatermNew<CR>
 
 " Easymotion
 " Turn on case-insensitive feature
@@ -199,6 +220,14 @@ map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 nmap f <Plug>(easymotion-overwin-f)
 nmap <M-w> <Plug>(easymotion-overwin-w)
+" Gif config
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+
+" These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
+" Without these mappings, `n` & `N` works fine. (These mappings just provide different highlight method and have some other features )
+" map  n <Plug>(easymotion-next)
+" map  N <Plug>(easymotion-prev)
 
 " Emmet
 let g:user_emmet_leader_key=','
@@ -247,7 +276,7 @@ nnoremap <leader>qq :q!<CR>
 "Create new file (place filename after /)
 nnoremap <leader>n :e %:h/
 
-nnoremap <leader><leader><leader> i<space><right><ESC>
+nnoremap <C-Space> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
@@ -306,12 +335,3 @@ nmap <A-j> 3j
 nmap <A-k> 3k
 nmap <A-l> 3l
 nmap <A-h> 3h
-
-let g:rainbow_active = 1
-let g:rainbow_load_separately = [
-    \ [ '*' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.tex' , [['(', ')'], ['\[', '\]']] ],
-    \ [ '*.cpp' , [['(', ')'], ['\[', '\]'], ['{', '}']] ],
-    \ [ '*.{html,htm}' , [['(', ')'], ['\[', '\]'], ['{', '}'], ['<\a[^>]*>', '</[^>]*>']] ],
-    \ ]
-let g:rainbow_ctermfgs = ['lightblue', 'lightgreen', 'yellow', 'red', 'magenta']
