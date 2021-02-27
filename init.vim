@@ -6,7 +6,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
-" Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'scrooloose/nerdtree'
 "Plug 'vim-syntastic/syntastic'
 Plug 'ryanoasis/vim-devicons'
