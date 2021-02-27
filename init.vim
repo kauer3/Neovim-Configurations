@@ -134,6 +134,8 @@ autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=22 ctermbg=NONE 
 autocmd ColorScheme * highlight EasyMotionShade ctermfg=59 ctermbg=NONE cterm=NONE
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
+hi MatchParenCur cterm=underline gui=underline
+hi MatchWordCur cterm=underline gui=underline
 
 colorscheme gruvbox
 
