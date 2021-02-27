@@ -100,7 +100,8 @@ autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
-autocmd ColorScheme * highlight Search ctermfg=46 ctermbg=black cterm=NONE
+autocmd ColorScheme * highlight Cursor ctermbg=88 ctermfg=214 cterm=NONE
+autocmd ColorScheme * highlight Search ctermfg=46 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSBar ctermbg=NONE ctermfg=88
@@ -127,6 +128,10 @@ autocmd ColorScheme * highlight CocInfoFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocErrorFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocWarningFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocHintFloat ctermbg=16 ctermfg=231
+autocmd ColorScheme * highlight FZFbg ctermbg=black ctermfg=black 
+autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=46 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=22 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionShade ctermfg=59 ctermbg=NONE cterm=NONE
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 
@@ -189,6 +194,7 @@ let g:rainbow_active = 1
 
 " FZF
 " g:fzf_colors
+
 map <silent> <leader>f :Files<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
 " TODO
@@ -200,14 +206,14 @@ let g:fzf_colors =
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'LineNr'],
   \ 'fg+':     ['fg', 'Normal'],
-  \ 'bg+':     ['bg', 'Search'],
+  \ 'bg+':     ['bg', 'FZFbg'],
   \ 'hl+':     ['fg', 'Search'],
   \ 'info':    ['fg', 'GruvboxPurpleBold'],
   \ 'border':  ['fg', 'LineNr'],
   \ 'prompt':  ['fg', 'PreProc'],
   \ 'disabled': ['bg', 'Label'],
   \ 'pointer': ['fg', 'Search'],
-  \ 'gutter':  ['fg', 'LineNr'],
+  \ 'gutter': ['fg', 'FZFbg'],
   \ 'marker':  ['fg', 'Todo'],
   \ 'spinner': ['fg', 'Todo'],
   \ 'header':  ['fg', 'Label'] }
@@ -239,11 +245,24 @@ let g:EasyMotion_smartcase = 1
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
-nmap f <Plug>(easymotion-overwin-f)
-nmap <M-w> <Plug>(easymotion-overwin-w)
+
+map  s <Plug>(easymotion-bd-f)
+nmap s <Plug>(easymotion-overwin-f)
+map  S <Plug>(easymotion-bd-t)
+map <leader>w <Plug>(easymotion-overwin-w)
+map <leader>W <Plug>(easymotion-bd-W)
+map <leader>e <Plug>(easymotion-bd-e)
+map <leader>E <Plug>(easymotion-bd-E)
+map <leader>l <Plug>(easymotion-overwin-line)
+map <leader>q <Plug>(easymotion-overwin-w)   
+
+
 " Gif config
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
+" Find next occurence of a char using easymotion
+" nmap t <Plug>(easymotion-overwin-t)
+
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide different highlight method and have some other features )
@@ -291,7 +310,7 @@ nnoremap <leader>ç ZZ
 
 "nnoremap <leader>q :q<CR>
 "nnoremap <leader>wq :wq<CR> "Not needed, ZZ does the same, but saving only when necessary
-nnoremap <leader>w :w<CR>
+nnoremap <leader><leader>w :w<CR>
 nnoremap <leader>qq :q!<CR>
 
 "Create new file (place filename after /)
@@ -301,7 +320,7 @@ nnoremap <C-Space> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
 nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1,, v:count1))<CR>
 
 "Normal mode commands while holding Alt in insert mode
 
@@ -318,6 +337,7 @@ inoremap <A-x> <C-o>x
 inoremap <A-X> <C-o>X
 inoremap <A-u> <C-o><C-y>
 inoremap <A-d> <C-o><C-e>
+inoremap <A-f> <ESC>f
 
 "inoremap <A-h> <ESC>hi
 "inoremap <A-h> <ESC>hi
@@ -341,7 +361,7 @@ nnoremap 99 %
 nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
-nmap <leader>e :NERDTreeToggle<CR>
+nmap <M-e> :NERDTreeToggle<CR>
 vmap <leader>y "+y
 "Git status
 nmap <leader>gs :Git<CR>
