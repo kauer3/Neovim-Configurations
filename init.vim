@@ -130,7 +130,7 @@ autocmd ColorScheme * highlight FZFbg ctermbg=black ctermfg=black
 autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=46 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=22 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight EasyMotionShade ctermfg=59 ctermbg=NONE cterm=NONE
-autocmd ColorScheme * highlight MatchParen ctermfg=46 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight MatchParen ctermfg=82 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchWord ctermfg=82 ctermbg=NONE cterm=NONE
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
