@@ -269,6 +269,9 @@ omap / <Plug>(easymotion-tn)
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
 
+" Matchup
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
+
 " Emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_settings = {
