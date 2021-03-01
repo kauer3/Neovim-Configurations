@@ -127,8 +127,8 @@ autocmd ColorScheme * highlight CocErrorFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocWarningFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocHintFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight FZFbg ctermbg=black ctermfg=black 
-autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=128 ctermbg=NONE cterm=NONE
-autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=125 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=76 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=106 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight EasyMotionShade ctermfg=88 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchParen ctermfg=76 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchWord ctermfg=76 ctermbg=NONE cterm=NONE
