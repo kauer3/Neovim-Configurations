@@ -12,6 +12,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'airblade/vim-gitgutter'
 "Expand i(nside) and a(rround) functionalities
 Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'wellle/targets.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
@@ -21,12 +22,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'voldikss/vim-floaterm'
 Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 "Color Picker
 " Plug 'abijr/colorpicker'
-"Debugger
 Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
@@ -129,7 +130,7 @@ autocmd ColorScheme * highlight CocHintFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight FZFbg ctermbg=black ctermfg=black 
 autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=76 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=106 ctermbg=NONE cterm=NONE
-autocmd ColorScheme * highlight EasyMotionShade ctermfg=88 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionShade ctermfg=59 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchParen ctermfg=76 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchWord ctermfg=76 ctermbg=NONE cterm=NONE
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
@@ -271,6 +272,9 @@ omap / <Plug>(easymotion-tn)
 
 " Matchup
 let g:matchup_matchparen_offscreen = {'method': 'status'}
+
+" Which key
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " Emmet
 let g:user_emmet_leader_key=','
