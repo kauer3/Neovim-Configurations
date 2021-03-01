@@ -239,6 +239,8 @@ map <silent> <M-s> :Startify<CR>
 map <silent> <leader>t :FloatermNew<CR>
 
 " Easymotion
+
+let g:EasyMotion_do_shade = 0
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
