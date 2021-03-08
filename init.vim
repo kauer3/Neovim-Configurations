@@ -22,12 +22,13 @@ Plug 'easymotion/vim-easymotion'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
+Plug 'preservim/tagbar'
+Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'voldikss/vim-floaterm'
 Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 "Color Picker
-" Plug 'abijr/colorpicker'
+Plug 'blindFS/vim-colorpicker'
 Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
@@ -107,6 +108,7 @@ autocmd ColorScheme * highlight PmenuSBar ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Pmenu ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight vimHiKeyError ctermbg=52 ctermfg=65
 autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
+autocmd ColorScheme * highlight Ignore ctermbg=NONE ctermfg=235
 " autocmd ColorScheme * highlight op_lv0 ctermfg=88
 " autocmd ColorScheme * highlight op_lv1 ctermfg=190
 " autocmd ColorScheme * highlight op_lv2 ctermfg=165
@@ -190,13 +192,17 @@ map <leader>ct :tabclose<CR>
 " Commenter
 map <leader>3 gcc
 
-" Rainbow
-let g:rainbow_active = 1
-
 " FZF
 " g:fzf_colors
 
-map <silent> <leader>f :Files<CR>
+map <silent> \f :Files<CR>
+map <silent> \~ :FZF ~<CR>
+map <silent> \l :BLines<CR>
+map <silent> \bl :Lines<CR>
+map <silent> \; :History:<CR>
+map <silent> \: :Commands<CR>
+map <silent> \c :BCommits<CR>
+map <silent> \bc :Commits<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
 " TODO
 " map \l <plug>(fzf-complete-buffer-line)
@@ -247,15 +253,17 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 
-map  s <Plug>(easymotion-bd-f)
-nmap s <Plug>(easymotion-overwin-f)
-map  S <Plug>(easymotion-bd-t)
+" noremap <leader>f f
+" noremap <leader>F F
+
+" map f <Plug>(easymotion-bd-f)
+" nmap f <Plug>(easymotion-overwin-f)
+" map F <Plug>(easymotion-bd-t)
 map <leader>w <Plug>(easymotion-overwin-w)
 map <leader>W <Plug>(easymotion-bd-W)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>E <Plug>(easymotion-bd-E)
 map <leader>l <Plug>(easymotion-overwin-line)
-map <leader>q <Plug>(easymotion-overwin-w)   
 
 
 " Gif config
@@ -269,6 +277,23 @@ omap / <Plug>(easymotion-tn)
 " Without these mappings, `n` & `N` works fine. (These mappings just provide different highlight method and have some other features )
 " map  n <Plug>(easymotion-next)
 " map  N <Plug>(easymotion-prev)
+
+" NerdTree
+nmap <M-e> :NERDTreeToggle<CR>
+
+" TagBar
+nmap <M-t> :TagbarToggle<CR>
+
+" Maximizer
+nnoremap <leader>z :MaximizerToggle<CR>
+
+"Git status
+nmap <leader>gs :Git<CR>
+nmap <leader>gc :Git commit<CR>
+nmap <leader>ga :Git add
+nmap <leader>g. :Git add .<CR>
+nmap <leader>gh :diffget //3<CR>
+nmap <leader>gf :diffget //2<CR>
 
 " Matchup
 let g:matchup_matchparen_offscreen = {'method': 'status'}
@@ -310,7 +335,7 @@ inoremap <M-o> <C-o>3zl
 " inoremap Â¬L <C-o>zL
 " inoremap Â¬R <C-o>zR
 " Find another keybinding for this
-" nnoremap <A-b> S<ESC>
+nnoremap S S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
 inoremap <expr> <A-ç> "<C-o>mp<C-o>A" . (nr2char(getchar())) . "<C-o>`p"
 nnoremap <leader>ç ZZ
@@ -363,20 +388,11 @@ inoremap <A-p> <C-r>*
 inoremap <C-v> <C-r>0
 
 "Toggle file maximization while on split screen
-nnoremap <leader>z :MaximizerToggle<CR>
 nnoremap 99 %
 nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
-nmap <M-e> :NERDTreeToggle<CR>
-vmap <leader>y "+y
-"Git status
-nmap <leader>gs :Git<CR>
-nmap <leader>gc :Git commit<CR>
-nmap <leader>ga :Git add
-nmap <leader>g. :Git add .<CR>
-nmap <leader>gh :diffget //3<CR>
-nmap <leader>gf :diffget //2<CR>
+
 map Y y$
 map ç $
 nmap <A-j> 3j
