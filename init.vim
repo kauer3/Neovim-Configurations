@@ -33,7 +33,8 @@ Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
-Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
+Plug 'turbio/bracey.vim'
+" , {'do': 'npm install --prefix server'}
 "Zoom (like tmux zoom)
 Plug 'szw/vim-maximizer'
 "Git wrapper
@@ -100,7 +101,9 @@ autocmd ColorScheme * highlight Underlined ctermbg=NONE ctermfg=58
 autocmd ColorScheme * highlight ErrorMsg ctermbg=NONE ctermfg=124
 autocmd ColorScheme * highlight MatchParen ctermbg=5
 autocmd ColorScheme * highlight CursorLineNr ctermbg=NONE
-autocmd ColorScheme * highlight Cursor ctermbg=88 ctermfg=214 cterm=NONE
+autocmd ColorScheme * highlight CursorLine ctermbg=NONE cterm=underline
+autocmd ColorScheme * highlight CursorColumn ctermbg=NONE cterm=underline
+autocmd ColorScheme * highlight Cursor ctermbg=black ctermfg=214 cterm=NONE
 autocmd ColorScheme * highlight Search ctermfg=46 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight Visual ctermbg=NONE
 autocmd ColorScheme * highlight Comment ctermfg=237
@@ -120,6 +123,8 @@ autocmd ColorScheme * highlight Ignore ctermbg=NONE ctermfg=235
 " autocmd ColorScheme * highlight lv3c ctermfg=190
 " autocmd ColorScheme * highlight lv2c ctermfg=19
 " autocmd ColorScheme * highlight lv1c ctermfg=165
+
+" Plungins higlighting
 autocmd ColorScheme * highlight StartifyFile ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight NERDTreeFlags ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight NERDTreeCWD ctermbg=NONE ctermfg=88
@@ -131,12 +136,17 @@ autocmd ColorScheme * highlight CocWarningFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight CocHintFloat ctermbg=16 ctermfg=231
 autocmd ColorScheme * highlight FZFbg ctermbg=black ctermfg=black 
 autocmd ColorScheme * highlight EasyMotionTarget2First ctermfg=76 ctermbg=NONE cterm=NONE
-autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=106 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionTarget2Second ctermfg=197 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight EasyMotionShade ctermfg=59 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionMoveHL ctermfg=76 ctermbg=NONE cterm=NONE
+autocmd ColorScheme * highlight EasyMotionIncSearch ctermfg=76 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchParen ctermfg=76 ctermbg=NONE cterm=NONE
 autocmd ColorScheme * highlight MatchWord ctermfg=76 ctermbg=NONE cterm=NONE
 hi airline_a_to_airline_b_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
+hi airline_c ctermbg=NONE
+hi airline_c ctermfg=88
+hi airline_tabfill ctermbg=NONE
 
 colorscheme gruvbox
 
@@ -157,13 +167,8 @@ set hidden
 set nohlsearch
 set tw=0
 set wm=0
-syntax on
 set statusline=%{FugitiveStatusline()}
-hi CursorLine ctermbg=NONE cterm=underline
-hi CursorColumn ctermbg=NONE cterm=underline
-hi airline_c ctermbg=NONE
-hi airline_c ctermfg=88
-hi airline_tabfill ctermbg=NONE
+syntax on
 
 function! SynStack()
     if !exists("*synstack")
@@ -172,6 +177,7 @@ function! SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+" commmand -nargs=0 show call SynStack()
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
@@ -248,35 +254,37 @@ map <silent> <leader>t :FloatermNew<CR>
 " Easymotion
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
+" let g:EasyMotion_move_highlight = 1
+" let g:EasyMotion_landing_highlight = 1
 " JK motions: Line motions
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 
-" noremap <leader>f f
-" noremap <leader>F F
+noremap <leader>f f
+noremap <leader>F F
 
-" map f <Plug>(easymotion-bd-f)
-" nmap f <Plug>(easymotion-overwin-f)
-" map F <Plug>(easymotion-bd-t)
 map <leader>w <Plug>(easymotion-overwin-w)
 map <leader>W <Plug>(easymotion-bd-W)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>E <Plug>(easymotion-bd-E)
 map <leader>l <Plug>(easymotion-overwin-line)
+map f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
+map t <Plug>(easymotion-bd-t)
+" nmap t <Plug>(easymotion-overwin-t)
 
 
 " Gif config
 map  / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 " Find next occurence of a char using easymotion
-" nmap t <Plug>(easymotion-overwin-t)
 
 
 " These `n` & `N` mappings are options. You do not have to map `n` & `N` to EasyMotion.
 " Without these mappings, `n` & `N` works fine. (These mappings just provide different highlight method and have some other features )
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
 
 " NerdTree
 nmap <M-e> :NERDTreeToggle<CR>
@@ -351,15 +359,15 @@ nnoremap <leader>n :e %:h/
 nnoremap <C-Space> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
-nnoremap <silent> <leader>o :<C-u>call append(line("."),   repeat([""], v:count1))<CR>
-nnoremap <silent> <leader>O :<C-u>call append(line(".")-1,, v:count1))<CR>
+nnoremap <silent> <leader>o :<C-u>call append(line("."), repeat([""], v:count1))<CR>
+nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([''], v:count1))<CR>
 
 "Normal mode commands while holding Alt in insert mode
 
-inoremap <A-h> <C-o>h
-inoremap <A-j> <C-o>j
-inoremap <A-k> <C-o>k
-inoremap <A-l> <C-o>a
+inoremap <A-h> <left>
+inoremap <A-j> <down>
+inoremap <A-k> <up>
+inoremap <A-l> <right>
 inoremap <A-w> <C-o>w
 inoremap <A-e> <C-o>e<C-o>l
 inoremap <A-b> <C-o>b
@@ -381,7 +389,7 @@ nnoremap <leader>v <C-v>
 
 nnoremap <A-r> <C-r>
 " nnoremap <A-o> <C-o>
-nnoremap <A-x> ldlh
+nnoremap <A-x> lxh
 nnoremap 1p "0p
 nnoremap <A-p> "*p
 inoremap <A-p> <C-r>*
@@ -389,7 +397,7 @@ inoremap <C-v> <C-r>0
 
 "Toggle file maximization while on split screen
 nnoremap 99 %
-nnoremap <leader>hh :set cursorline! cursorcolumn!<CR>
+nnoremap <silent> <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
 
