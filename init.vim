@@ -177,7 +177,8 @@ function! SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" commmand -nargs=0 show call SynStack()
+" command! -nargs=0 Foo call Foo()
+command! -nargs=0 FindHGroup call SynStack()
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
@@ -202,7 +203,7 @@ map <leader>3 gcc
 " g:fzf_colors
 
 map <silent> \f :Files<CR>
-map <silent> \~ :FZF ~<CR>
+map <silent> \a :FZF ~<CR>
 map <silent> \l :BLines<CR>
 map <silent> \bl :Lines<CR>
 map <silent> \; :History:<CR>
@@ -254,24 +255,28 @@ map <silent> <leader>t :FloatermNew<CR>
 " Easymotion
 " Turn on case-insensitive feature
 let g:EasyMotion_smartcase = 1
-" let g:EasyMotion_move_highlight = 1
-" let g:EasyMotion_landing_highlight = 1
+let g:EasyMotion_use_upper = 1
+let g:EasyMotion_keys = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ;'
+let g:EasyMotion_enter_jump_first = 1
+let g:EasyMotion_space_jump_first = 1
+
 " JK motions: Line motions
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 
-noremap <leader>f f
-noremap <leader>F F
+" " Remap original f action
+" noremap <leader>f f
+" noremap <leader>F F
 
 map <leader>w <Plug>(easymotion-overwin-w)
 map <leader>W <Plug>(easymotion-bd-W)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>E <Plug>(easymotion-bd-E)
 map <leader>l <Plug>(easymotion-overwin-line)
-map f <Plug>(easymotion-bd-f)
-nmap f <Plug>(easymotion-overwin-f)
-map t <Plug>(easymotion-bd-t)
+map <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
+map <leader>t <Plug>(easymotion-bd-t)
 " nmap t <Plug>(easymotion-overwin-t)
 
 
