@@ -186,7 +186,8 @@ noremap <M-a> <C-i>
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
-map <CR> i<CR><ESC>
+nnoremap <CR> i<CR><ESC>
+" nnoremap <NL> <CR>
 
 " Tabs and buffers
 map <silent> <M-3> :bn<CR>
