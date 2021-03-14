@@ -14,7 +14,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 " Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
-Plug 'wellle/targets.vim'
+" Plug 'wellle/targets.vim'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install'  }
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
@@ -43,7 +43,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-autocmd VimEnter * Startify
+" autocmd VimEnter * Startify
 autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 autocmd VimEnter * highlight GitGutterAddLineNr ctermfg=23
@@ -295,7 +295,7 @@ map  N <Plug>(easymotion-prev)
 nmap <M-e> :NERDTreeToggle<CR>
 
 " TagBar
-nmap <M-t> :TagbarToggle<CR>
+nmap <M-t> :TagbarToggle<CR><C-l>
 
 " Maximizer
 nnoremap <leader>z :MaximizerToggle<CR>
@@ -324,11 +324,10 @@ let g:user_emmet_settings = {
     \}
 \}
 
-nnoremap <leader>b ^
-nnoremap <M-i> 3<C-y>
-nnoremap <M-u> 3<C-e>
-nnoremap <M-y> 3zh
-nnoremap <M-o> 3zl
+nnoremap <M-i> <C-y>
+nnoremap <M-u> <C-e>
+nnoremap <M-y> 2zh
+nnoremap <M-o> 2zl
 " nnoremap <M-,> H3<C-y>
 " nnoremap <M-m> L3<C-e>
 " nnoremap <M-n> 3zh
@@ -396,7 +395,6 @@ nnoremap <A-r> <C-r>
 " nnoremap <A-o> <C-o>
 nnoremap <A-x> lxh
 nnoremap 1p "0p
-nnoremap <A-p> "*p
 inoremap <A-p> <C-r>*
 inoremap <C-v> <C-r>0
 
@@ -406,9 +404,10 @@ nnoremap <silent> <leader>hh :set cursorline! cursorcolumn!<CR>
 inoremap jj <ESC>
 vnoremap <leader> <ESC>
 
-map Y y$
-map ç $
-nmap <A-j> 3j
-nmap <A-k> 3k
-nmap <A-l> 3l
-nmap <A-h> 3h
+nnoremap <M-0> ^
+nnoremap ç $
+onoremap ç $
+nnoremap <A-j> 3j
+nnoremap <A-k> 3k
+nnoremap <A-l> 3l
+nnoremap <A-h> 3h
