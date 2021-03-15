@@ -293,7 +293,7 @@ map  n <Plug>(easymotion-next)
 map  N <Plug>(easymotion-prev)
 
 " NerdTree
-nmap <M-e> :NERDTreeToggle<CR>
+nmap <silent> <M-e> :NERDTreeToggle<CR>
 
 " TagBar
 nmap <M-t> :TagbarToggle<CR><C-l>
