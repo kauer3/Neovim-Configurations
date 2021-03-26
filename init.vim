@@ -25,7 +25,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/tagbar'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'voldikss/vim-floaterm'
-Plug 'andymass/vim-matchup'
+" Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 "Color Picker
 Plug 'blindFS/vim-colorpicker'
@@ -43,7 +43,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
-" autocmd VimEnter * Startify
 autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 autocmd VimEnter * highlight GitGutterAddLineNr ctermfg=23
@@ -63,7 +62,10 @@ autocmd ColorScheme * highlight GruvboxAquaBold ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight GruvboxFg3 ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight GruvboxFg1 ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight GruvboxYellowSign ctermbg=NONE ctermfg=166
+
 autocmd ColorScheme * highlight Normal ctermbg=NONE ctermfg=214
+" autocmd ColorScheme * highlight Normal ctermbg=232 ctermfg=214
+
 autocmd ColorScheme * highlight Operator ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight NvimOperator ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight htmlTagName ctermbg=NONE ctermfg=214
@@ -73,6 +75,7 @@ autocmd ColorScheme * highlight htmlArg ctermbg=NONE ctermfg=23
 autocmd ColorScheme * highlight htmlEndTag ctermbg=NONE ctermfg=23
 " autocmd ColorScheme * highlight htmlString ctermbg=NONE ctermfg=65
 " autocmd ColorScheme * highlight htmlTagN ctermbg=NONE ctermfg=88
+autocmd ColorScheme * highlight htmlItalic ctermbg=NONE
 autocmd ColorScheme * highlight cssDefinition ctermbg=NONE ctermfg=71
 autocmd ColorScheme * highlight cssBraces ctermbg=NONE ctermfg=214
 autocmd ColorScheme * highlight cssIdentifier ctermbg=NONE ctermfg=88
@@ -110,6 +113,8 @@ autocmd ColorScheme * highlight Comment ctermfg=237
 autocmd ColorScheme * highlight PmenuSBar ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight Pmenu ctermbg=NONE ctermfg=88
 autocmd ColorScheme * highlight vimHiKeyError ctermbg=52 ctermfg=65
+autocmd ColorScheme * highlight Folded ctermbg=52 ctermfg=214
+autocmd ColorScheme * highlight FoldColumn ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
 autocmd ColorScheme * highlight Ignore ctermbg=NONE ctermfg=235
 " autocmd ColorScheme * highlight op_lv0 ctermfg=88
@@ -161,6 +166,7 @@ set inccommand=split
 set completeopt=noinsert,menuone,noselect
 set signcolumn=auto
 set scrolloff=5
+set scroll=1
 set linebreak
 set nowrap
 set hidden
@@ -179,6 +185,10 @@ endfunc
 
 " command! -nargs=0 Foo call Foo()
 command! -nargs=0 FindHGroup call SynStack()
+cnoremap <M-h> <Left>
+cnoremap <M-l> <Right>
+cnoremap <M-k> <Up>
+cnoremap <M-j> <Down>
 nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
@@ -186,7 +196,7 @@ noremap <M-a> <C-i>
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
-nnoremap <CR> i<CR><ESC>
+nnoremap <expr> <Enter> &ma?":set paste\<cr>\<esc>o\<esc>:set nopaste\<cr>":"\<cr>"
 " nnoremap <NL> <CR>
 
 " Tabs and buffers
@@ -204,13 +214,17 @@ map <leader>3 gcc
 " g:fzf_colors
 
 map <silent> \f :Files<CR>
+map <silent> \gf :GFiles<CR>
+map <silent> \gd :GFiles?<CR>
 map <silent> \a :FZF ~<CR>
 map <silent> \l :BLines<CR>
 map <silent> \bl :Lines<CR>
-map <silent> \; :History:<CR>
+map <silent> \h: :History:<CR>
+map <silent> \h/ :History/<CR>
 map <silent> \: :Commands<CR>
 map <silent> \c :BCommits<CR>
 map <silent> \bc :Commits<CR>
+map <silent> \m :Maps<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
 " TODO
 " map \l <plug>(fzf-complete-buffer-line)
@@ -242,6 +256,10 @@ let g:fzf_colors =
 
 " let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 " let g:fzf_preview_window = ['up:40%', 'ctrl-/']
+
+" COC
+nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gr <Plug>(coc-references)
 
 " Startify
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}]
@@ -325,8 +343,8 @@ let g:user_emmet_settings = {
     \}
 \}
 
-nnoremap <M-i> <C-y>
-nnoremap <M-u> <C-e>
+nnoremap <M-i> 2<C-u>
+nnoremap <M-u> 2<C-d>
 nnoremap <M-y> 2zh
 nnoremap <M-o> 2zl
 " nnoremap <M-,> H3<C-y>
@@ -338,15 +356,6 @@ nnoremap <M-o> 2zl
 " nnoremap Â¬ç zL
 " nnoremap Â¬g zR
 
-" TODO Fix next lines
-inoremap <M-i> <C-o>3<C-y>
-inoremap <M-u> <C-o>3<C-e>
-inoremap <M-y> <C-o>3zh
-inoremap <M-o> <C-o>3zl
-" inoremap Â¬b <C-o><C-b>
-" inoremap Â¬f <C-o><C-f>
-" inoremap Â¬L <C-o>zL
-" inoremap Â¬R <C-o>zR
 " Find another keybinding for this
 nnoremap S S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
@@ -368,6 +377,16 @@ nnoremap <silent> <leader>o :<C-u>call append(line("."), repeat([""], v:count1))
 nnoremap <silent> <leader>O :<C-u>call append(line(".")-1, repeat([''], v:count1))<CR>
 
 "Normal mode commands while holding Alt in insert mode
+
+" TODO Fix next lines
+inoremap <M-i> <C-o>3<C-y>
+inoremap <M-u> <C-o>3<C-e>
+inoremap <M-y> <C-o>3zh
+inoremap <M-o> <C-o>3zl
+" inoremap Â¬b <C-o><C-b>
+" inoremap Â¬f <C-o><C-f>
+" inoremap Â¬L <C-o>zL
+" inoremap Â¬R <C-o>zR
 
 inoremap <A-h> <left>
 inoremap <A-j> <down>
