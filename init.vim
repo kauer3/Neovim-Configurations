@@ -226,7 +226,6 @@ map <silent> \c :BCommits<CR>
 map <silent> \bc :Commits<CR>
 map <silent> \m :Maps<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
-" export FZF_DEFAULT_OPTS='--bind ctrl-t:down,ctrl-s:up'
 " TODO
 " map \l <plug>(fzf-complete-buffer-line)
 " map \b <plug>(fzf-complete-line)
