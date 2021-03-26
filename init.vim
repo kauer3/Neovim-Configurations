@@ -1,7 +1,10 @@
 source $HOME/.config/nvim/themes/airline.vim
 
 call plug#begin('~/.vim/plugged')
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
+Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " Plug 'freeo/vim-kalisi'
 Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
@@ -39,8 +42,6 @@ Plug 'turbio/bracey.vim'
 Plug 'szw/vim-maximizer'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all'  }
-Plug 'junegunn/fzf.vim'
 call plug#end()
 
 autocmd VimEnter * GitGutterSignsDisable
@@ -183,7 +184,6 @@ function! SynStack()
     echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
-" command! -nargs=0 Foo call Foo()
 command! -nargs=0 FindHGroup call SynStack()
 cnoremap <M-h> <Left>
 cnoremap <M-l> <Right>
@@ -226,6 +226,7 @@ map <silent> \c :BCommits<CR>
 map <silent> \bc :Commits<CR>
 map <silent> \m :Maps<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
+" export FZF_DEFAULT_OPTS='--bind ctrl-t:down,ctrl-s:up'
 " TODO
 " map \l <plug>(fzf-complete-buffer-line)
 " map \b <plug>(fzf-complete-line)
@@ -246,7 +247,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Todo'],
   \ 'spinner': ['fg', 'Todo'],
   \ 'header':  ['fg', 'Label'] }
-
 
 
 " call fzf#run({'source': [1, 2, 3], 'down': '~40%'}))
