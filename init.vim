@@ -201,6 +201,7 @@ nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
 noremap <M-a> <C-i>
+noremap <C-A-v> :echo 'ok!'
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
