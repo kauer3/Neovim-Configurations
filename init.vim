@@ -198,15 +198,14 @@ cnoremap <M-l> <Right>
 cnoremap <M-k> <Up>
 cnoremap <M-j> <Down>
 nnoremap <SPACE> <Nop>
-nnoremap <D-q> ZZ
 let mapleader="\<space>"
 noremap <M-b> <C-o>
 noremap <M-a> <C-i>
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
-nnoremap <expr> <Enter> &ma?":set paste\<cr>\<esc>o\<esc>:set nopaste\<cr>":"\<cr>"
-" nnoremap <NL> <CR>
+" nnoremap <expr> <Enter> &ma?":set paste\<cr>\<esc>o\<esc>:set nopaste\<cr>":"\<cr>"
+nnoremap <Enter> i<Enter><ESC>
 
 " Tabs and buffers
 map <silent> <M-3> :bn<CR>
