@@ -423,7 +423,7 @@ nnoremap <M-o> 2zl
 nnoremap S S<ESC>
 nnoremap <expr> <A-ç> "mpA" . (nr2char(getchar())) . "<ESC>`p"
 inoremap <expr> <A-ç> "<C-o>mp<C-o>A" . (nr2char(getchar())) . "<C-o>`p"
-nnoremap <leader>ç ZZ
+" nnoremap <leader>ç ZZ
 
 "nnoremap <leader>q :q<CR>
 "nnoremap <leader>wq :wq<CR> "Not needed, ZZ does the same, but saving only when necessary
