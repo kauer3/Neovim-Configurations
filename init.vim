@@ -28,7 +28,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/tagbar'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'voldikss/vim-floaterm'
-" Plug 'andymass/vim-matchup'
+Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 "Color Picker
 Plug 'blindFS/vim-colorpicker'
@@ -36,8 +36,7 @@ Plug 'puremourning/vimspector'
 "Emmet/completion
 Plug 'mattn/emmet-vim'
 "Live preview
-Plug 'turbio/bracey.vim'
-" , {'do': 'npm install --prefix server'}
+Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 "Zoom (like tmux zoom)
 Plug 'szw/vim-maximizer'
 "Git wrapper
@@ -153,6 +152,14 @@ hi airline_y_to_airline_z_inactive term=NONE cterm=NONE ctermbg=NONE ctermfg=88
 hi airline_c ctermbg=NONE
 hi airline_c ctermfg=88
 hi airline_tabfill ctermbg=NONE
+highlight default link WhichKeySeperator NonText
+highlight default link WhichKey          MatchWord
+highlight default link WhichKeyGroup     Normal
+" highlight default link WhichKeyDesc      Normal
+" Hide which key status line
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 noshowmode ruler
 
 colorscheme gruvbox
 
@@ -165,6 +172,7 @@ set showcmd
 set incsearch
 set inccommand=split
 set completeopt=noinsert,menuone,noselect
+set timeoutlen=1000
 set signcolumn=auto
 set scrolloff=5
 set scroll=1
@@ -190,6 +198,7 @@ cnoremap <M-l> <Right>
 cnoremap <M-k> <Up>
 cnoremap <M-j> <Down>
 nnoremap <SPACE> <Nop>
+nnoremap <D-q> ZZ
 let mapleader="\<space>"
 noremap <M-b> <C-o>
 noremap <M-a> <C-i>
@@ -213,19 +222,26 @@ map <leader>3 gcc
 " FZF
 " g:fzf_colors
 
-map <silent> \f :Files<CR>
-map <silent> \gf :GFiles<CR>
-map <silent> \gd :GFiles?<CR>
-map <silent> \a :FZF ~<CR>
-map <silent> \l :BLines<CR>
-map <silent> \bl :Lines<CR>
-map <silent> \h: :History:<CR>
-map <silent> \h/ :History/<CR>
-map <silent> \: :Commands<CR>
-map <silent> \c :BCommits<CR>
-map <silent> \bc :Commits<CR>
-map <silent> \m :Maps<CR>
+map <silent> <leader>sf :GFiles<CR>
+map <silent> <leader>sp :Files<CR>
+map <silent> <leader>sgd :GFiles?<CR>
+map <silent> <leader>sl :BLines<CR>
+map <silent> <leader>bl :Lines<CR>
+map <silent> <leader>st :BTags<CR>
+map <silent> <leader>bt :Tags<CR>
+map <silent> <leader>hf :History<CR>
+map <silent> <leader>h: :History:<CR>
+map <silent> <leader>h/ :History/<CR>
+map <silent> <leader>s: :Commands<CR>
+map <silent> <leader>sc :BCommits<CR>
+map <silent> <leader>bc :Commits<CR>
+map <silent> <leader>sm :Maps<CR>
+map <silent> <leader>´´ :Marks<CR>
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8} }
+
+" let g:fzf_preview_window = ['right:50%', 'ctrl-/']
+" map <silent> \t :call fzf#run({'source': 'rg --files --column --no-heading --hidden --follow --glob "!.git/*"', 'sink': 'e', 'down': '~30%', 'options': '--bind ctrl-o:up,ctrl-l:down'})<cr>
+" map <silent> <F2> :call fzf#run({'source': 'rg --files --column --no-heading --hidden --follow --glob "!.git/*"', 'sink': 'e', 'down': '~30%', 'options': '--bind ctrl-o:up,ctrl-l:down'})<cr>
 " TODO
 " map \l <plug>(fzf-complete-buffer-line)
 " map \b <plug>(fzf-complete-line)
@@ -258,7 +274,20 @@ let g:fzf_colors =
 
 " COC
 nmap <leader>gd <Plug>(coc-definition)
+nmap <leader>gt <Plug>(coc-type-definition)
+nmap <leader>gi <Plug>(coc-implementation)
 nmap <leader>gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 " Startify
 let g:startify_bookmarks = [ {'c': '~/.config/nvim/init.vim'}]
@@ -283,17 +312,17 @@ map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 
-" " Remap original f action
-" noremap <leader>f f
-" noremap <leader>F F
+" Remap original f action
+nnoremap <leader>f f
+nnoremap <leader>F F
 
 map <leader>w <Plug>(easymotion-overwin-w)
 map <leader>W <Plug>(easymotion-bd-W)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>E <Plug>(easymotion-bd-E)
 map <leader>l <Plug>(easymotion-overwin-line)
-map <leader>f <Plug>(easymotion-bd-f)
-nmap <leader>f <Plug>(easymotion-overwin-f)
+map f <Plug>(easymotion-bd-f)
+nmap f <Plug>(easymotion-overwin-f)
 map <leader>t <Plug>(easymotion-bd-t)
 " nmap t <Plug>(easymotion-overwin-t)
 
@@ -330,7 +359,40 @@ nmap <leader>gf :diffget //2<CR>
 let g:matchup_matchparen_offscreen = {'method': 'status'}
 
 " Which key
-nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+let g:which_key_sep = '-->'
+" let g:which_key_vertical = 1
+" let g:which_key_use_floating_win = 1
+" let g:which_key_floating_opts = { 'width': '-100'}
+" let g:which_key_position = 'botright'
+" let g:which_key_floating_relative_win = 1
+let g:which_key_hspace = 2
+" let g:which_key_map.s = { 'name' : 'fzf' }
+" let g:which_key_map.s.f = ['update', 'save-file']
+" let g:which_key_map =  {'s': 'FZF Search'}
+" let g:which_key_map =  {'b': 'FZF Search Loaded Buffers'}
+" let g:which_key_map =  {'h': 'FZF History'}
+" let g:which_key_map =  {'f': 'Find Forward'}
+" let g:which_key_map =  {'F': 'Find Backwards'}
+" let g:which_key_map['s'] = [ '<Plug>NERDCommenterToggle'  , 'FZF Search']
+" let g:which_key_map['b'] = [ ':CocCommand explorer'       , 'FZF Search Loaded Buffers']
+" let g:which_key_map['h'] = [ ':Files'                     , 'FZF History']
+" let g:which_key_map = [ 'f'                     , 'Find Forward']
+" let g:which_key_map = [ 'F'                     , 'Find Backwards']
+" let g:which_key_map.s =  {'f': 'Git Files'}
+" let g:which_key_map.s =  {'p': 'Path Files'}
+" let g:which_key_map.s =  {'l': 'Search Lines (Current Buffer)'}
+" let g:which_key_map.s =  {'t': 'Search Tags (Current Buffer)'}
+" let g:which_key_map.s =  {'c': 'Search Commits (Current Buffer)'}
+" let g:which_key_map.s =  {':': 'Search Commands'}
+" let g:which_key_map.s =  {'m': 'Search Mappings'}
+" let g:which_key_map.b =  {'l': 'Search Lines (Loaded Buffers)'}
+" let g:which_key_map.b =  {'t': 'Search Tags (Loaded Buffers)'}
+" let g:which_key_map.b =  {'c': 'Search Commits (Loaded Buffers)'}
+" let g:which_key_map.h =  {'f': 'Files History'}
+" let g:which_key_map.h =  {':': 'Commands History'}
+" let g:which_key_map.h =  {'/': 'Search History'}
 
 " Emmet
 let g:user_emmet_leader_key=','
@@ -341,6 +403,8 @@ let g:user_emmet_settings = {
         \}
     \}
 \}
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <M-i> 2<C-u>
 nnoremap <M-u> 2<C-d>
@@ -412,10 +476,9 @@ nnoremap <leader>v <C-v>
 
 nnoremap <A-r> <C-r>
 " nnoremap <A-o> <C-o>
-nnoremap <A-x> lxh
+nnoremap <A-x> mxlxh`x
 nnoremap 1p "0p
-inoremap <A-p> <C-r>*
-inoremap <C-v> <C-r>0
+inoremap <A-p> <C-r>
 
 "Toggle file maximization while on split screen
 nnoremap 99 %
