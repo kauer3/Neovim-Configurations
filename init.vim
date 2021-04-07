@@ -406,6 +406,11 @@ let g:user_emmet_settings = {
     \}
 \}
 
+
+" Vimspector
+nnoremap <leader>da :call vimspector#Launch()<CR>
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 nnoremap <M-i> 2<C-u>
