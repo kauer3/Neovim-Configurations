@@ -41,6 +41,8 @@ Plug 'turbio/bracey.vim', {'do': 'npm install --prefix server'}
 Plug 'szw/vim-maximizer'
 "Git wrapper
 Plug 'tpope/vim-fugitive'
+" Vim on browser
+Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 call plug#end()
 
 autocmd VimEnter * GitGutterSignsDisable
