@@ -203,7 +203,9 @@ nnoremap <SPACE> <Nop>
 let mapleader="\<space>"
 noremap <M-b> <C-o>
 noremap <M-a> <C-i>
-noremap <C-A-i> :echo 'ok!'
+" nnoremap <C-A-s> :so %<CR>
+nnoremap <C-A-s> <ESC>:w <bar> so %<CR>
+inoremap <C-A-s> <ESC>:w <bar> so %<CR>a
 map <TAB> i<TAB><ESC>l
 map <S-TAB> <<
 imap <S-TAB> <C-d>
@@ -438,7 +440,7 @@ nnoremap <leader>qq :q!<CR>
 "Create new file (place filename after /)
 nnoremap <leader>n :e %:h/
 
-nnoremap <C-Space> i<space><right><ESC>
+nnoremap <M-Space> i<space><right><ESC>
 "inoremap <A-h> :<C-U>exe v:count1 <C-o>h<CR>
 "inoremap <silent> <A-h> :<C-u>call <ESC>hi, repeat([""], v:count1)<CR>
 nnoremap <silent> <leader>o :<C-u>call append(line("."), repeat([""], v:count1))<CR>
