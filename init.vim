@@ -6,7 +6,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " Plug 'freeo/vim-kalisi'
-Plug 'kauer3/paste-replace.vim'
+" Plug 'kauer3/paste-replace.vim'
+Plug '~/WSL/GitHub/paste-replace'
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'scrooloose/nerdtree'
