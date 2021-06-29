@@ -8,6 +8,8 @@ Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 " Plug 'freeo/vim-kalisi'
 " Plug 'kauer3/paste-replace.vim'
 Plug '~/WSL/GitHub/paste-replace'
+" Themes
+" Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'morhetz/gruvbox'
 Plug 'ap/vim-css-color'
 Plug 'scrooloose/nerdtree'
@@ -46,12 +48,14 @@ Plug 'tpope/vim-fugitive'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
 call plug#end()
 
+" TODO from here
 autocmd VimEnter * GitGutterSignsDisable
 autocmd VimEnter * GitGutterLineNrHighlightsEnable
 autocmd VimEnter * highlight GitGutterAddLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterChangeLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterDeleteLineNr ctermfg=23
 autocmd VimEnter * highlight GitGutterChangeDeleteLine ctermfg=23
+
 autocmd ColorScheme * highlight GruvboxPurple ctermfg=166
 autocmd ColorScheme * highlight GruvboxRedBold ctermfg=88 ctermbg=226
 autocmd ColorScheme * highlight GruvboxRed ctermfg=23
@@ -120,6 +124,8 @@ autocmd ColorScheme * highlight Folded ctermbg=52 ctermfg=214
 autocmd ColorScheme * highlight FoldColumn ctermbg=NONE ctermfg=65
 autocmd ColorScheme * highlight Todo ctermbg=NONE ctermfg=197
 autocmd ColorScheme * highlight Ignore ctermbg=NONE ctermfg=235
+" TODO untill here
+
 " autocmd ColorScheme * highlight op_lv0 ctermfg=88
 " autocmd ColorScheme * highlight op_lv1 ctermfg=190
 " autocmd ColorScheme * highlight op_lv2 ctermfg=165
