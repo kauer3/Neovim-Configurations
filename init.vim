@@ -213,6 +213,17 @@ imap <S-TAB> <C-d>
 " nnoremap <expr> <Enter> &ma?":set paste\<cr>\<esc>o\<esc>:set nopaste\<cr>":"\<cr>"
 nnoremap <Enter> i<Enter><ESC>
 
+
+
+" TODO TODO TODO TODO TODO
+
+" folder.vim code | TODO go back to position if no fold happens
+nnoremap zff $zf%
+
+" TODO TODO TODO TODO TODO
+
+
+
 " Tabs and buffers
 map <silent> <M-3> :bn<CR>
 map <silent> <M-2> :bp<CR>
