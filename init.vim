@@ -29,7 +29,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'preservim/tagbar'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'voldikss/vim-floaterm'
-Plug 'andymass/vim-matchup'
+" Plug 'andymass/vim-matchup'
 Plug 'mhinz/vim-startify'
 "Color Picker
 Plug 'blindFS/vim-colorpicker'
@@ -302,7 +302,7 @@ let g:startify_enable_special = 1
 map <silent> <M-s> :Startify<CR>
 
 " Floaterm
-map <silent> <leader>t :FloatermNew<CR>
+map <silent> <M-C-T> :FloatermNew<CR>
 
 " Easymotion
 " Turn on case-insensitive feature
@@ -318,16 +318,16 @@ map <leader>k <Plug>(easymotion-k)
 " Find overwindow (biderectional)
 
 " Remap original f action
-nnoremap <leader>f f
-nnoremap <leader>F F
+" nnoremap <leader>f f
+" nnoremap <leader>F F
 
 map <leader>w <Plug>(easymotion-overwin-w)
 map <leader>W <Plug>(easymotion-bd-W)
 map <leader>e <Plug>(easymotion-bd-e)
 map <leader>E <Plug>(easymotion-bd-E)
 map <leader>l <Plug>(easymotion-overwin-line)
-map f <Plug>(easymotion-bd-f)
-nmap f <Plug>(easymotion-overwin-f)
+map <leader>f <Plug>(easymotion-bd-f)
+nmap <leader>f <Plug>(easymotion-overwin-f)
 map <leader>t <Plug>(easymotion-bd-t)
 " nmap t <Plug>(easymotion-overwin-t)
 
@@ -400,6 +400,7 @@ let g:which_key_hspace = 2
 " let g:which_key_map.h =  {'/': 'Search History'}
 
 " Emmet
+nnoremap <C-;> ,
 let g:user_emmet_leader_key=','
 let g:user_emmet_settings = {
     \  'html': {
